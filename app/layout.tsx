@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "給料ラボ | 給与計算ツール",
   description:
     "残業代・手取り額を無料で即計算。スマホ対応のシンプルなUIで、給与に関する計算をサポートします。",
+  verification: {
+    google: "Ndqz372zHs5shJmpmc_n1bYjLCIt48NZrDvwwYPyGjc",
+  },
 };
 
 export default function RootLayout({
