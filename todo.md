@@ -124,10 +124,34 @@
 
 ---
 
-## Week 2 予告（次のスコープ）
+## Week 2 タスクリスト
 
-- 時給換算計算ページ追加
-- 営業日計算ページ追加
-- guideページ 5本 AI生成・投稿
-- AdSense申請
-- Google Search Console 設定
+### 2-1. 新規ツールページ
+- [x] 時給換算計算ページ追加（`/kyuryo/jikyu`）
+  - `lib/calc/jikyu.ts` — 計算ロジック（月給/年収 → 時給・日給換算）
+  - `components/calculators/jikyu-calculator.tsx` — Client Component
+  - `app/kyuryo/jikyu/page.tsx` — ページ（SEOメタデータ・解説・FAQ含む）
+- [x] 営業日計算ページ追加（`/eigyobi`）
+  - `lib/calc/eigyobi.ts` — 計算ロジック（祝日データ2024-2026対応）
+  - `components/calculators/eigyobi-calculator.tsx` — Client Component
+  - `app/eigyobi/page.tsx` — ページ（SEOメタデータ・解説含む）
+- [x] 工数・人日計算ページ追加（`/koji`）
+  - `lib/calc/koji.ts` — 計算ロジック（人日・人月・概算費用）
+  - `components/calculators/koji-calculator.tsx` — Client Component
+  - `app/koji/page.tsx` — ページ（SEOメタデータ・解説・FAQ含む）
+
+### 2-2. guideページ（SEOコンテンツ）
+- [x] `app/guide/page.tsx` — ガイド一覧ページ
+- [x] `app/guide/zangyoudai-keisan-houhou/page.tsx` — 残業代の計算方法を徹底解説
+- [x] `app/guide/tedori-shikumi/page.tsx` — 手取り額の仕組み
+- [x] `app/guide/shakaihokenryou-guide/page.tsx` — 社会保険料の計算方法
+- [x] `app/guide/zangyou-60jikan-rule/page.tsx` — 月60時間超の残業代50%増
+- [x] `app/guide/nenshu-tedori-hayamihyou/page.tsx` — 年収別の手取り早見表
+
+### 2-3. ナビゲーション更新
+- [x] ヘッダーに時給換算・営業日計算・ガイドのリンクを追加
+- [x] 既存ページの「準備中」リンクを実リンクに変更
+
+### 2-4. 未着手（人間側タスク）
+- [ ] AdSense申請
+- [ ] Google Search Console 設定

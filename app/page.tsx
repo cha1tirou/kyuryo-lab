@@ -84,14 +84,17 @@ export default function Home() {
                 月収から社会保険料・税金を差し引いた手取り額を計算
               </p>
             </Link>
-            <div className="block bg-white rounded-2xl border border-slate-200 p-6 shadow-sm opacity-60">
+            <Link
+              href="/kyuryo/jikyu"
+              className="block bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:bg-slate-50 transition-colors duration-150"
+            >
               <h3 className="font-semibold text-slate-800 mb-1">
                 時給換算計算
               </h3>
               <p className="text-sm text-slate-500">
-                月給・年収から時給を換算（準備中）
+                月給・年収から時給を換算
               </p>
-            </div>
+            </Link>
           </div>
         </section>
 
