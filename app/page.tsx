@@ -1,65 +1,143 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Header from "../components/layout/header";
+import Footer from "../components/layout/footer";
+import OvertimeCalculator from "../components/calculators/overtime-calculator";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "残業代計算 | 無料で即計算・スマホ対応 | 給料ラボ",
+  description:
+    "残業時間・深夜・休日出勤の残業代を無料で即計算。スマホで使いやすいシンプルなUIで、時間外・深夜・法定休日の割増賃金を正確に算出します。",
+  keywords: "残業代計算,残業代,計算,割増賃金,時間外労働",
+  openGraph: {
+    title: "残業代計算 | 無料で即計算・スマホ対応 | 給料ラボ",
+    description:
+      "残業時間・深夜・休日出勤の残業代を無料で即計算。スマホで使いやすいシンプルなUIで割増賃金を算出。",
+    type: "website",
+  },
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      <Header />
+      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
+        {/* Hero */}
+        <section className="mb-8">
+          <h1 className="text-3xl font-bold text-slate-800 mb-2">
+            残業代計算
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-slate-500">
+            月給と残業時間を入力するだけで、残業代を即座に計算します。
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+        </section>
+
+        {/* 計算ツール */}
+        <section className="mb-12">
+          <OvertimeCalculator />
+        </section>
+
+        {/* 計算方法の解説 */}
+        <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">
+            残業代の計算方法
+          </h2>
+          <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
+            <p>
+              残業代は、基礎時給に割増率を掛けて算出します。基礎時給は「基本月給
+              ÷
+              月所定労働時間」で求められます。月所定労働時間は一般的に160時間（1日8時間×20日）です。
+            </p>
+            <h3 className="font-semibold text-slate-700">
+              時間外労働（通常の残業）
+            </h3>
+            <p>
+              法定労働時間（1日8時間・週40時間）を超えた労働には、基礎時給の25%増（1.25倍）の割増賃金が支払われます。月60時間を超える残業については、2023年4月から中小企業も含めて50%増（1.50倍）が適用されます。
+            </p>
+            <h3 className="font-semibold text-slate-700">深夜労働の割増</h3>
+            <p>
+              22時から翌5時までの深夜時間帯に労働した場合、さらに25%の割増が加算されます。深夜に残業した場合は、時間外の25%と深夜の25%を合わせて50%増となります。
+            </p>
+            <h3 className="font-semibold text-slate-700">
+              法定休日出勤の割増
+            </h3>
+            <p>
+              法定休日（週1日の休日）に出勤した場合は、基礎時給の35%増（1.35倍）の割増賃金が適用されます。法定休日の労働は、時間外労働とは別に計算されます。
+            </p>
+          </div>
+        </section>
+
+        {/* 関連ツール */}
+        <section className="mb-12">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">
+            関連ツール
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Link
+              href="/kyuryo/tetsuke"
+              className="block bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:bg-slate-50 transition-colors duration-150"
+            >
+              <h3 className="font-semibold text-slate-800 mb-1">
+                給与手取り計算
+              </h3>
+              <p className="text-sm text-slate-500">
+                月収から社会保険料・税金を差し引いた手取り額を計算
+              </p>
+            </Link>
+            <div className="block bg-white rounded-2xl border border-slate-200 p-6 shadow-sm opacity-60">
+              <h3 className="font-semibold text-slate-800 mb-1">
+                時給換算計算
+              </h3>
+              <p className="text-sm text-slate-500">
+                月給・年収から時給を換算（準備中）
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">
+            よくある質問
+          </h2>
+          <div className="space-y-6">
+            <FaqItem
+              question="深夜残業と通常残業が重なった場合は？"
+              answer="深夜時間帯（22時〜5時）に残業した場合、時間外労働の割増25%に加えて深夜割増25%が適用され、合計50%増となります。本ツールでは、残業時間に深夜分も含めて入力し、深夜残業時間を別途入力することで正しく計算されます。"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <FaqItem
+              question="月60時間超の残業代はどう変わりますか？"
+              answer="2023年4月から、中小企業を含む全ての企業で月60時間を超える残業には50%増の割増率が適用されます。本ツールではこの規定に対応しており、60時間までは25%増、60時間を超えた分は50%増で自動計算されます。"
+            />
+            <FaqItem
+              question="法定休日と所定休日の違いは？"
+              answer="法定休日は労働基準法で定められた週1日（または4週4日）の休日で、35%増の割増賃金が適用されます。会社が独自に定める所定休日（例：土曜日）の出勤は、週40時間を超える場合に時間外労働として25%増が適用されます。"
+            />
+            <FaqItem
+              question="基礎時給の計算に含まれない手当はありますか？"
+              answer="家族手当、通勤手当、別居手当、子女教育手当、住宅手当、臨時に支払われた賃金、1か月を超える期間ごとに支払われる賃金は、基礎時給の計算から除外されます。本ツールでは基本月給のみで計算しています。"
+            />
+          </div>
+        </section>
+
+        {/* AdSense slot */}
       </main>
+      <Footer />
+    </>
+  );
+}
+
+function FaqItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) {
+  return (
+    <div>
+      <h3 className="font-semibold text-slate-700 mb-1">Q. {question}</h3>
+      <p className="text-sm text-slate-600 leading-relaxed">A. {answer}</p>
     </div>
   );
 }
