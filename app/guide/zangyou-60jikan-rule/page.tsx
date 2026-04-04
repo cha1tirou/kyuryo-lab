@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import Link from "next/link";
+import {
+  ArticleJsonLd,
+  BreadcrumbJsonLd,
+} from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "月60時間超の残業代は50%増 | 2023年改正のポイント | 給料ラボ",
@@ -19,6 +23,19 @@ export default function Zangyou60Page() {
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        headline="月60時間超の残業代は50%増 | 2023年改正のポイント"
+        description="2023年4月から中小企業にも適用された月60時間超の残業割増率50%への引き上げを解説。"
+        url="https://kyuryo-lab.com/guide/zangyou-60jikan-rule"
+        datePublished="2025-01-15"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "給与ガイド", url: "https://kyuryo-lab.com/guide" },
+          { name: "月60時間超の残業代50%増", url: "https://kyuryo-lab.com/guide/zangyou-60jikan-rule" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <article>
           <header className="mb-8">

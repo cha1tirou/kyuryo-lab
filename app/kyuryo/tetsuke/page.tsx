@@ -3,6 +3,10 @@ import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import TakehomeCalculator from "../../../components/calculators/takehome-calculator";
 import Link from "next/link";
+import {
+  WebApplicationJsonLd,
+  BreadcrumbJsonLd,
+} from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "給与手取り計算 | 月収から手取り額を即計算 | 給料ラボ",
@@ -21,6 +25,17 @@ export default function TetsukePage() {
   return (
     <>
       <Header />
+      <WebApplicationJsonLd
+        name="給与手取り計算 | 給料ラボ"
+        url="https://kyuryo-lab.com/kyuryo/tetsuke"
+        description="月収から社会保険料・所得税・住民税を差し引いた手取り額を即計算。"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "給与手取り計算", url: "https://kyuryo-lab.com/kyuryo/tetsuke" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         {/* Hero */}
         <section className="mb-8">

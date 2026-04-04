@@ -3,6 +3,10 @@ import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import EigyobiCalculator from "../../components/calculators/eigyobi-calculator";
 import Link from "next/link";
+import {
+  WebApplicationJsonLd,
+  BreadcrumbJsonLd,
+} from "../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "営業日計算 | 期間の営業日数を即計算 | 給料ラボ",
@@ -21,6 +25,17 @@ export default function EigyobiPage() {
   return (
     <>
       <Header />
+      <WebApplicationJsonLd
+        name="営業日計算 | 給料ラボ"
+        url="https://kyuryo-lab.com/eigyobi"
+        description="指定期間の営業日数を土日・祝日を除いて即計算。"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "営業日計算", url: "https://kyuryo-lab.com/eigyobi" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         {/* Hero */}
         <section className="mb-8">

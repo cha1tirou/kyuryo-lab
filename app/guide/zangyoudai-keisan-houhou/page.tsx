@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import Link from "next/link";
+import {
+  ArticleJsonLd,
+  BreadcrumbJsonLd,
+} from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "残業代の計算方法を徹底解説 | 割増率・計算例つき | 給料ラボ",
@@ -19,6 +23,19 @@ export default function ZangyoudaiKeisanPage() {
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        headline="残業代の計算方法を徹底解説 | 割増率・計算例つき"
+        description="残業代の正しい計算方法を、基礎時給の求め方から割増率の種類、具体的な計算例まで徹底解説。"
+        url="https://kyuryo-lab.com/guide/zangyoudai-keisan-houhou"
+        datePublished="2025-01-15"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "給与ガイド", url: "https://kyuryo-lab.com/guide" },
+          { name: "残業代の計算方法", url: "https://kyuryo-lab.com/guide/zangyoudai-keisan-houhou" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <article>
           <header className="mb-8">

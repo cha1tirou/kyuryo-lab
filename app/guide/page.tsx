@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "給与ガイド | 残業代・手取りの基礎知識 | 給料ラボ",
@@ -52,6 +53,12 @@ export default function GuidePage() {
   return (
     <>
       <Header />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "給与ガイド", url: "https://kyuryo-lab.com/guide" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <section className="mb-8">
           <h1 className="text-3xl font-bold text-slate-800 mb-2">

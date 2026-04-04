@@ -3,6 +3,11 @@ import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import KojiCalculator from "../../components/calculators/koji-calculator";
 import Link from "next/link";
+import {
+  WebApplicationJsonLd,
+  FAQPageJsonLd,
+  BreadcrumbJsonLd,
+} from "../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "工数・人日計算 | 人月・人日・費用を即計算 | 給料ラボ",
@@ -17,10 +22,40 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  {
+    question: "1人月は何時間ですか？",
+    answer:
+      "一般的に1人月 = 20営業日 × 8時間 = 160時間です。ただし、企業やプロジェクトによって定義が異なる場合があります。",
+  },
+  {
+    question: "人数を増やせば工期は短縮できますか？",
+    answer:
+      "単純作業は人数に比例して短縮できますが、コミュニケーションコストが増加するため、実際には人数を2倍にしても工期は半分にはなりません（ブルックスの法則）。",
+  },
+  {
+    question: "バッファはどのくらい見込むべきですか？",
+    answer:
+      "一般的には見積もり工数の20〜50%をバッファとして追加します。要件の不確実性が高いプロジェクトほど、多めのバッファが必要です。",
+  },
+];
+
 export default function KojiPage() {
   return (
     <>
       <Header />
+      <WebApplicationJsonLd
+        name="工数・人日計算 | 給料ラボ"
+        url="https://kyuryo-lab.com/koji"
+        description="プロジェクトの総工数から人日・人月・概算費用を即計算。"
+      />
+      <FAQPageJsonLd items={faqItems} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "工数・人日計算", url: "https://kyuryo-lab.com/koji" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         {/* Hero */}
         <section className="mb-8">
@@ -104,18 +139,13 @@ export default function KojiPage() {
             よくある質問
           </h2>
           <div className="space-y-6">
-            <FaqItem
-              question="1人月は何時間ですか？"
-              answer="一般的に1人月 = 20営業日 × 8時間 = 160時間です。ただし、企業やプロジェクトによって定義が異なる場合があります。"
-            />
-            <FaqItem
-              question="人数を増やせば工期は短縮できますか？"
-              answer="単純作業は人数に比例して短縮できますが、コミュニケーションコストが増加するため、実際には人数を2倍にしても工期は半分にはなりません（ブルックスの法則）。"
-            />
-            <FaqItem
-              question="バッファはどのくらい見込むべきですか？"
-              answer="一般的には見積もり工数の20〜50%をバッファとして追加します。要件の不確実性が高いプロジェクトほど、多めのバッファが必要です。"
-            />
+            {faqItems.map((item) => (
+              <FaqItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+              />
+            ))}
           </div>
         </section>
       </main>

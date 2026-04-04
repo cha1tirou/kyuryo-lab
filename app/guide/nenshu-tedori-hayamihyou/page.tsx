@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import Link from "next/link";
+import {
+  ArticleJsonLd,
+  BreadcrumbJsonLd,
+} from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "年収別の手取り早見表 | 300万〜1000万円の手取り目安 | 給料ラボ",
@@ -19,6 +23,19 @@ export default function NenshuHayamiPage() {
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        headline="年収別の手取り早見表 | 300万〜1000万円の手取り目安"
+        description="年収300万円から1000万円までの手取り額を早見表で一覧。ケース別に社会保険料・税金の目安を紹介。"
+        url="https://kyuryo-lab.com/guide/nenshu-tedori-hayamihyou"
+        datePublished="2025-01-15"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "給与ガイド", url: "https://kyuryo-lab.com/guide" },
+          { name: "年収別の手取り早見表", url: "https://kyuryo-lab.com/guide/nenshu-tedori-hayamihyou" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <article>
           <header className="mb-8">

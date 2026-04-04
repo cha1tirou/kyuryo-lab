@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import Link from "next/link";
+import {
+  ArticleJsonLd,
+  BreadcrumbJsonLd,
+} from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "社会保険料の計算方法 | 健康保険・厚生年金・雇用保険 | 給料ラボ",
@@ -19,6 +23,19 @@ export default function ShakaiHokenPage() {
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        headline="社会保険料の計算方法 | 健康保険・厚生年金・雇用保険"
+        description="会社員が負担する社会保険料の種類と計算方法を、令和6年度の最新料率で解説。"
+        url="https://kyuryo-lab.com/guide/shakaihokenryou-guide"
+        datePublished="2025-01-15"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "給与ガイド", url: "https://kyuryo-lab.com/guide" },
+          { name: "社会保険料の計算方法", url: "https://kyuryo-lab.com/guide/shakaihokenryou-guide" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <article>
           <header className="mb-8">

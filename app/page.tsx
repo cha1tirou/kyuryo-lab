@@ -3,6 +3,11 @@ import Header from "../components/layout/header";
 import Footer from "../components/layout/footer";
 import OvertimeCalculator from "../components/calculators/overtime-calculator";
 import Link from "next/link";
+import {
+  WebApplicationJsonLd,
+  FAQPageJsonLd,
+  BreadcrumbJsonLd,
+} from "../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "残業代計算 | 無料で即計算・スマホ対応 | 給料ラボ",
@@ -17,10 +22,45 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  {
+    question: "深夜残業と通常残業が重なった場合は？",
+    answer:
+      "深夜時間帯（22時〜5時）に残業した場合、時間外労働の割増25%に加えて深夜割増25%が適用され、合計50%増となります。本ツールでは、残業時間に深夜分も含めて入力し、深夜残業時間を別途入力することで正しく計算されます。",
+  },
+  {
+    question: "月60時間超の残業代はどう変わりますか？",
+    answer:
+      "2023年4月から、中小企業を含む全ての企業で月60時間を超える残業には50%増の割増率が適用されます。本ツールではこの規定に対応しており、60時間までは25%増、60時間を超えた分は50%増で自動計算されます。",
+  },
+  {
+    question: "法定休日と所定休日の違いは？",
+    answer:
+      "法定休日は労働基準法で定められた週1日（または4週4日）の休日で、35%増の割増賃金が適用されます。会社が独自に定める所定休日（例：土曜日）の出勤は、週40時間を超える場合に時間外労働として25%増が適用されます。",
+  },
+  {
+    question: "基礎時給の計算に含まれない手当はありますか？",
+    answer:
+      "家族手当、通勤手当、別居手当、子女教育手当、住宅手当、臨時に支払われた賃金、1か月を超える期間ごとに支払われる賃金は、基礎時給の計算から除外されます。本ツールでは基本月給のみで計算しています。",
+  },
+];
+
 export default function Home() {
   return (
     <>
       <Header />
+      <WebApplicationJsonLd
+        name="残業代計算 | 給料ラボ"
+        url="https://kyuryo-lab.com/"
+        description="残業時間・深夜・休日出勤の残業代を無料で即計算。"
+      />
+      <FAQPageJsonLd items={faqItems} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "残業代計算", url: "https://kyuryo-lab.com/" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         {/* Hero */}
         <section className="mb-8">
@@ -104,22 +144,13 @@ export default function Home() {
             よくある質問
           </h2>
           <div className="space-y-6">
-            <FaqItem
-              question="深夜残業と通常残業が重なった場合は？"
-              answer="深夜時間帯（22時〜5時）に残業した場合、時間外労働の割増25%に加えて深夜割増25%が適用され、合計50%増となります。本ツールでは、残業時間に深夜分も含めて入力し、深夜残業時間を別途入力することで正しく計算されます。"
-            />
-            <FaqItem
-              question="月60時間超の残業代はどう変わりますか？"
-              answer="2023年4月から、中小企業を含む全ての企業で月60時間を超える残業には50%増の割増率が適用されます。本ツールではこの規定に対応しており、60時間までは25%増、60時間を超えた分は50%増で自動計算されます。"
-            />
-            <FaqItem
-              question="法定休日と所定休日の違いは？"
-              answer="法定休日は労働基準法で定められた週1日（または4週4日）の休日で、35%増の割増賃金が適用されます。会社が独自に定める所定休日（例：土曜日）の出勤は、週40時間を超える場合に時間外労働として25%増が適用されます。"
-            />
-            <FaqItem
-              question="基礎時給の計算に含まれない手当はありますか？"
-              answer="家族手当、通勤手当、別居手当、子女教育手当、住宅手当、臨時に支払われた賃金、1か月を超える期間ごとに支払われる賃金は、基礎時給の計算から除外されます。本ツールでは基本月給のみで計算しています。"
-            />
+            {faqItems.map((item) => (
+              <FaqItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+              />
+            ))}
           </div>
         </section>
 

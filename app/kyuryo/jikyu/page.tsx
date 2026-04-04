@@ -3,6 +3,11 @@ import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import JikyuCalculator from "../../../components/calculators/jikyu-calculator";
 import Link from "next/link";
+import {
+  WebApplicationJsonLd,
+  FAQPageJsonLd,
+  BreadcrumbJsonLd,
+} from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "時給換算計算 | 月給・年収から時給を計算 | 給料ラボ",
@@ -17,10 +22,40 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  {
+    question: "月給に交通費は含めるべきですか？",
+    answer:
+      "一般的に、時給換算では基本給のみで計算します。交通費（通勤手当）は労働の対価ではなく実費補填のため、含めないのが正確です。",
+  },
+  {
+    question: "ボーナスを含めた場合の時給はどう計算しますか？",
+    answer:
+      "年収（ボーナス込み）を12で割って月額にし、それを月所定労働時間で割ります。本ツールの「年収」モードで計算できます。",
+  },
+  {
+    question: "月所定労働時間がわからない場合は？",
+    answer:
+      "一般的な正社員は月160時間（1日8時間×20日）です。就業規則や雇用契約書に記載されている所定労働時間を確認してください。",
+  },
+];
+
 export default function JikyuPage() {
   return (
     <>
       <Header />
+      <WebApplicationJsonLd
+        name="時給換算計算 | 給料ラボ"
+        url="https://kyuryo-lab.com/kyuryo/jikyu"
+        description="月給・年収から時給を無料で即計算。"
+      />
+      <FAQPageJsonLd items={faqItems} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "時給換算計算", url: "https://kyuryo-lab.com/kyuryo/jikyu" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         {/* Hero */}
         <section className="mb-8">
@@ -104,18 +139,13 @@ export default function JikyuPage() {
             よくある質問
           </h2>
           <div className="space-y-6">
-            <FaqItem
-              question="月給に交通費は含めるべきですか？"
-              answer="一般的に、時給換算では基本給のみで計算します。交通費（通勤手当）は労働の対価ではなく実費補填のため、含めないのが正確です。"
-            />
-            <FaqItem
-              question="ボーナスを含めた場合の時給はどう計算しますか？"
-              answer="年収（ボーナス込み）を12で割って月額にし、それを月所定労働時間で割ります。本ツールの「年収」モードで計算できます。"
-            />
-            <FaqItem
-              question="月所定労働時間がわからない場合は？"
-              answer="一般的な正社員は月160時間（1日8時間×20日）です。就業規則や雇用契約書に記載されている所定労働時間を確認してください。"
-            />
+            {faqItems.map((item) => (
+              <FaqItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+              />
+            ))}
           </div>
         </section>
       </main>

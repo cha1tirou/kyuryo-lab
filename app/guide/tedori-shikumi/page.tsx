@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import Link from "next/link";
+import {
+  ArticleJsonLd,
+  BreadcrumbJsonLd,
+} from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "手取り額の仕組み | 額面と手取りの差はなぜ生まれる？ | 給料ラボ",
@@ -19,6 +23,19 @@ export default function TedoriShikumiPage() {
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        headline="手取り額の仕組み | 額面と手取りの差はなぜ生まれる？"
+        description="額面と手取りの違い、月給から天引きされる社会保険料・所得税・住民税の仕組みを解説。"
+        url="https://kyuryo-lab.com/guide/tedori-shikumi"
+        datePublished="2025-01-15"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "ホーム", url: "https://kyuryo-lab.com/" },
+          { name: "給与ガイド", url: "https://kyuryo-lab.com/guide" },
+          { name: "手取り額の仕組み", url: "https://kyuryo-lab.com/guide/tedori-shikumi" },
+        ]}
+      />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <article>
           <header className="mb-8">
