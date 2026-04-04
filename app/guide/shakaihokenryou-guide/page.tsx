@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import Link from "next/link";
+import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
@@ -38,6 +39,11 @@ export default function ShakaiHokenPage() {
         ]}
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
+        <Breadcrumb items={[
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+          { name: "社会保険料の計算方法", href: "/guide/shakaihokenryou-guide" },
+        ]} />
         <article>
           <header className="mb-8">
             <p className="text-sm text-blue-600 mb-2">
@@ -170,6 +176,25 @@ export default function ShakaiHokenPage() {
               </div>
             </section>
 
+            {/* 参考資料 */}
+            <section className="bg-slate-50 rounded-2xl border border-slate-200 p-6">
+              <h2 className="font-semibold text-slate-800 mb-3">参考資料</h2>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    保険料額表
+                  </a>
+                  <span className="text-slate-400 ml-1">（全国健康保険協会）</span>
+                </li>
+                <li>
+                  <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    厚生年金保険料額表
+                  </a>
+                  <span className="text-slate-400 ml-1">（日本年金機構）</span>
+                </li>
+              </ul>
+            </section>
+
             <section className="bg-blue-50 rounded-2xl border border-blue-200 p-6 text-center">
               <h2 className="font-semibold text-slate-800 mb-2">手取り額を計算してみる</h2>
               <p className="text-sm text-slate-600 mb-4">
@@ -192,6 +217,12 @@ export default function ShakaiHokenPage() {
                 </Link>
                 <Link href="/guide/nenshu-tedori-hayamihyou" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
                   <p className="font-medium text-slate-700 text-sm">年収別の手取り早見表</p>
+                </Link>
+                <Link href="/guide/kyuyo-meisai-mikata" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">給与明細の見方</p>
+                </Link>
+                <Link href="/guide/bonus-zeikin" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">ボーナスの手取りと税金</p>
                 </Link>
               </div>
             </section>

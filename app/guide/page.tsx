@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import Link from "next/link";
+import Breadcrumb from "../../components/ui/breadcrumb";
 import { BreadcrumbJsonLd } from "../../components/seo/json-ld";
 
 export const metadata: Metadata = {
@@ -109,6 +110,10 @@ export default function GuidePage() {
         ]}
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
+        <Breadcrumb items={[
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+        ]} />
         <section className="mb-8">
           <h1 className="text-3xl font-bold text-slate-800 mb-2">
             給与ガイド
