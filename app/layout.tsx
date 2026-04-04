@@ -24,6 +24,12 @@ export const metadata: Metadata = {
   verification: {
     google: "Ndqz372zHs5shJmpmc_n1bYjLCIt48NZrDvwwYPyGjc",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "給料ラボ | 給与計算ツール",
+    description:
+      "残業代・手取り額を無料で即計算。スマホ対応のシンプルなUIで、給与に関する計算をサポートします。",
+  },
 };
 
 export default function RootLayout({

@@ -54,6 +54,11 @@ export function ArticleJsonLd({
         headline,
         description,
         url,
+        author: {
+          "@type": "Organization",
+          name: "給料ラボ",
+          url: "https://kyuryo-lab.com",
+        },
         publisher: {
           "@type": "Organization",
           name: "給料ラボ",

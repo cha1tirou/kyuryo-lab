@@ -23,6 +23,9 @@ const guideLinks = [
   { href: "/guide/bonus-zeikin", label: "ボーナスの手取り" },
   { href: "/guide/taishokukin-zeikin", label: "退職金の税金" },
   { href: "/guide/fuyou-kojo-guide", label: "扶養控除と103万の壁" },
+  { href: "/guide/103man-kabe", label: "103万円の壁とは" },
+  { href: "/guide/shakai-hoken-kanyu-jouken", label: "社会保険の加入条件" },
+  { href: "/guide/yukyu-kyuka-keisan", label: "有給休暇の計算方法" },
 ];
 
 export default function Footer() {
