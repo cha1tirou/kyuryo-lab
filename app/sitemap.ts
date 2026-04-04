@@ -14,5 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/guide/shakaihokenryou-guide`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/guide/zangyou-60jikan-rule`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/guide/nenshu-tedori-hayamihyou`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/shotokuzei-keisan`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/juuminzei-keisan`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/kyuyo-meisai-mikata`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/saitei-chingin`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ]
 }

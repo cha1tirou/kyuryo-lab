@@ -15,6 +15,10 @@ const guideLinks = [
   { href: "/guide/shakaihokenryou-guide", label: "社会保険料ガイド" },
   { href: "/guide/zangyou-60jikan-rule", label: "60時間超の残業代" },
   { href: "/guide/nenshu-tedori-hayamihyou", label: "年収別手取り早見表" },
+  { href: "/guide/shotokuzei-keisan", label: "所得税の計算方法" },
+  { href: "/guide/juuminzei-keisan", label: "住民税の計算方法" },
+  { href: "/guide/kyuyo-meisai-mikata", label: "給与明細の見方" },
+  { href: "/guide/saitei-chingin", label: "最低賃金一覧" },
 ];
 
 export default function Footer() {
