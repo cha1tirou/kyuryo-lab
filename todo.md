@@ -94,15 +94,17 @@
 ## Phase 3: SEO・仕上げ
 
 ### 3-1. SEO基本設定
-- [ ] 各ページのメタデータ（title・description・OGP）を設定
-- [ ] `app/sitemap.ts` を作成（自動サイトマップ生成）
-- [ ] `app/robots.ts` を作成
-- [ ] `/public/og-image.png` を作成（1200×630px）
+- [x] 各ページのメタデータ（title・description・OGP）を設定
+- [x] `app/sitemap.ts` を作成（自動サイトマップ生成）
+- [x] `app/robots.ts` を作成
+- [x] OG画像を作成（`app/opengraph-image.tsx` で動的生成、1200×630px）
 
 ### 3-2. パフォーマンス
-- [ ] Lighthouse スコア確認（Mobile 90点以上を目標）
-- [ ] 画像最適化（next/image）
-- [ ] フォントのdisplay: swap設定確認
+- [x] Lighthouse スコア確認（SEO:100, Accessibility:95, Performance:66, BP:77）
+  - パフォーマンスはAdSenseスクリプトが主因。TBT 10ms, CLS 0 は良好
+  - AdSense strategy を lazyOnload に変更済み
+- [x] 画像最適化 — プロジェクト内に最適化対象画像なし（OG画像は動的生成）
+- [x] フォントのdisplay: swap設定確認 — Inter/Noto Sans JP 共に設定済み
 
 ---
 

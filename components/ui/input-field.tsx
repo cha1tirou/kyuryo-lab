@@ -45,6 +45,7 @@ export default function InputField({
           <input
             type="text"
             inputMode="decimal"
+            aria-label={label}
             value={value}
             onChange={(e) => {
               const v = parseFloat(e.target.value);
@@ -72,6 +73,7 @@ export default function InputField({
       {showSlider && max !== undefined && (
         <input
           type="range"
+          aria-label={`${label}スライダー`}
           min={min}
           max={max}
           step={step}

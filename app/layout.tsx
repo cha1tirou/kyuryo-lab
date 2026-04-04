@@ -16,6 +16,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kyuryo-lab.com"),
   title: "給料ラボ | 給与計算ツール",
   description:
     "残業代・手取り額を無料で即計算。スマホ対応のシンプルなUIで、給与に関する計算をサポートします。",
@@ -38,7 +39,7 @@ export default function RootLayout({
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6875835900503056"
         crossOrigin="anonymous"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-700 font-sans">
         {children}
