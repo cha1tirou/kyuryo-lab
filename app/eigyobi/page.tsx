@@ -3,6 +3,7 @@ import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import EigyobiCalculator from "../../components/calculators/eigyobi-calculator";
 import Link from "next/link";
+import Breadcrumb from "../../components/ui/breadcrumb";
 import {
   WebApplicationJsonLd,
   FAQPageJsonLd,
@@ -58,6 +59,12 @@ export default function EigyobiPage() {
         ]}
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
+        <Breadcrumb
+          items={[
+            { name: "ホーム", href: "/" },
+            { name: "営業日計算", href: "/eigyobi" },
+          ]}
+        />
         {/* Hero */}
         <section className="mb-8">
           <h1 className="text-3xl font-bold text-slate-800 mb-2">
@@ -133,6 +140,21 @@ export default function EigyobiPage() {
             </Link>
           </div>
         </section>
+        {/* 関連ガイド記事 */}
+        <section className="mb-12">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">関連ガイド記事</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link href="/guide/kyuyo-meisai-mikata" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">給与明細の見方</p>
+              <p className="text-xs text-slate-400 mt-1">残業代の項目を正しくチェック</p>
+            </Link>
+            <Link href="/guide/zangyoudai-keisan-houhou" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">残業代の計算方法を徹底解説</p>
+              <p className="text-xs text-slate-400 mt-1">割増率・基礎時給・計算例つき</p>
+            </Link>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-800 mb-4">

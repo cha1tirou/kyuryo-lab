@@ -3,6 +3,7 @@ import Header from "../components/layout/header";
 import Footer from "../components/layout/footer";
 import OvertimeCalculator from "../components/calculators/overtime-calculator";
 import Link from "next/link";
+import Breadcrumb from "../components/ui/breadcrumb";
 import {
   WebApplicationJsonLd,
   FAQPageJsonLd,
@@ -63,6 +64,12 @@ export default function Home() {
         ]}
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
+        <Breadcrumb
+          items={[
+            { name: "ホーム", href: "/" },
+            { name: "残業代計算", href: "/" },
+          ]}
+        />
         {/* Hero */}
         <section className="mb-8">
           <h1 className="text-3xl font-bold text-slate-800 mb-2">
@@ -108,6 +115,29 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 関連ガイド記事 */}
+        <section className="mb-12">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">関連ガイド記事</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link href="/guide/zangyoudai-keisan-houhou" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">残業代の計算方法を徹底解説</p>
+              <p className="text-xs text-slate-400 mt-1">割増率・基礎時給・計算例つき</p>
+            </Link>
+            <Link href="/guide/zangyou-60jikan-rule" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">月60時間超の残業代50%増</p>
+              <p className="text-xs text-slate-400 mt-1">2023年改正のポイント</p>
+            </Link>
+            <Link href="/guide/kyuyo-meisai-mikata" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">給与明細の見方</p>
+              <p className="text-xs text-slate-400 mt-1">残業代の項目を正しくチェック</p>
+            </Link>
+            <Link href="/guide/saitei-chingin" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">最低賃金一覧（2024年度）</p>
+              <p className="text-xs text-slate-400 mt-1">時給換算で最低賃金チェック</p>
+            </Link>
+          </div>
+        </section>
+
         {/* 関連ツール */}
         <section className="mb-12">
           <h2 className="text-xl font-semibold text-slate-800 mb-4">
@@ -135,6 +165,37 @@ export default function Home() {
               <p className="text-sm text-slate-500">
                 月給・年収から時給を換算
               </p>
+            </Link>
+          </div>
+        </section>
+
+        {/* 人気ガイド記事 */}
+        <section className="mb-12">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">人気ガイド記事</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/guide/nenshu-tedori-hayamihyou" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">年収別の手取り早見表</p>
+              <p className="text-xs text-slate-400 mt-1">300万〜1000万円の手取り目安</p>
+            </Link>
+            <Link href="/guide/tedori-shikumi" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">手取り額の仕組み</p>
+              <p className="text-xs text-slate-400 mt-1">額面と手取りの差はなぜ？</p>
+            </Link>
+            <Link href="/guide/fuyou-kojo-guide" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">扶養控除と103万円の壁</p>
+              <p className="text-xs text-slate-400 mt-1">年収の壁を完全解説</p>
+            </Link>
+            <Link href="/guide/shakaihokenryou-guide" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">社会保険料の計算方法</p>
+              <p className="text-xs text-slate-400 mt-1">健康保険・厚生年金・雇用保険</p>
+            </Link>
+            <Link href="/guide/shotokuzei-keisan" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">所得税の計算方法</p>
+              <p className="text-xs text-slate-400 mt-1">税率・控除をわかりやすく</p>
+            </Link>
+            <Link href="/guide/nenmatsu-chousei" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">年末調整の仕組み</p>
+              <p className="text-xs text-slate-400 mt-1">控除・還付をわかりやすく</p>
             </Link>
           </div>
         </section>

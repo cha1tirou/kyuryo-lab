@@ -3,6 +3,7 @@ import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import TakehomeCalculator from "../../../components/calculators/takehome-calculator";
 import Link from "next/link";
+import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
   WebApplicationJsonLd,
   FAQPageJsonLd,
@@ -63,6 +64,12 @@ export default function TetsukePage() {
         ]}
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
+        <Breadcrumb
+          items={[
+            { name: "ホーム", href: "/" },
+            { name: "手取り計算", href: "/kyuryo/tetsuke" },
+          ]}
+        />
         {/* Hero */}
         <section className="mb-8">
           <h1 className="text-3xl font-bold text-slate-800 mb-2">
@@ -129,6 +136,29 @@ export default function TetsukePage() {
               <p className="text-sm text-slate-500">
                 月給・年収から時給を換算
               </p>
+            </Link>
+          </div>
+        </section>
+
+        {/* 関連ガイド記事 */}
+        <section className="mb-12">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">関連ガイド記事</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link href="/guide/tedori-shikumi" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">手取り額の仕組み</p>
+              <p className="text-xs text-slate-400 mt-1">額面と手取りの差はなぜ？</p>
+            </Link>
+            <Link href="/guide/shakaihokenryou-guide" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">社会保険料の計算方法</p>
+              <p className="text-xs text-slate-400 mt-1">健康保険・厚生年金・雇用保険</p>
+            </Link>
+            <Link href="/guide/nenshu-tedori-hayamihyou" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">年収別の手取り早見表</p>
+              <p className="text-xs text-slate-400 mt-1">300万〜1000万円の手取り目安</p>
+            </Link>
+            <Link href="/guide/shotokuzei-keisan" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+              <p className="font-medium text-slate-700 text-sm">所得税の計算方法</p>
+              <p className="text-xs text-slate-400 mt-1">税率・控除をわかりやすく</p>
             </Link>
           </div>
         </section>
