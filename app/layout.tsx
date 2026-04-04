@@ -37,7 +37,16 @@ export default function RootLayout({
       className={`${inter.variable} ${notoSansJP.variable} h-full antialiased`}
     >
       <Script
-        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-QXG9BQ33ME"
+        strategy="afterInteractive"
+      />
+      <Script id="ga4" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-QXG9BQ33ME');`}
+      </Script>
+      <Script
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6875835900503056"
         crossOrigin="anonymous"
         strategy="lazyOnload"
