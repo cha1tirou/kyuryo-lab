@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description:
     "残業代の正しい計算方法を、基礎時給の求め方から割増率の種類、具体的な計算例まで徹底解説。月60時間超の50%割増にも対応。",
   keywords: "残業代,計算方法,割増率,基礎時給,時間外労働,深夜残業",
+  alternates: { canonical: "/guide/zangyoudai-keisan-houhou" },
   openGraph: {
     title: "残業代の計算方法を徹底解説 | 割増率・計算例つき",
     description: "残業代の正しい計算方法を基礎時給から割増率まで徹底解説。",
@@ -207,6 +208,19 @@ export default function ZangyoudaiKeisanPage() {
               >
                 残業代計算ツールを使う
               </Link>
+            </section>
+
+            {/* 関連記事 */}
+            <section>
+              <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <Link href="/guide/zangyou-60jikan-rule" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">月60時間超の残業代は50%増</p>
+                </Link>
+                <Link href="/guide/tedori-shikumi" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">手取り額の仕組み</p>
+                </Link>
+              </div>
             </section>
           </div>
         </article>

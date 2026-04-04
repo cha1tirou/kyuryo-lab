@@ -5,6 +5,7 @@ import EigyobiCalculator from "../../components/calculators/eigyobi-calculator";
 import Link from "next/link";
 import {
   WebApplicationJsonLd,
+  FAQPageJsonLd,
   BreadcrumbJsonLd,
 } from "../../components/seo/json-ld";
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "指定期間の営業日数を無料で即計算。土日・祝日を除いた稼働日数を自動算出。プロジェクト管理や給与計算に便利です。",
   keywords: "営業日計算,稼働日数,営業日数,土日祝除く,ビジネスデイ",
+  alternates: { canonical: "/eigyobi" },
   openGraph: {
     title: "営業日計算 | 期間の営業日数を即計算 | 給料ラボ",
     description:
@@ -21,10 +23,29 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  {
+    question: "振替休日は営業日に含まれますか？",
+    answer:
+      "振替休日は祝日扱いのため、営業日には含まれません。本ツールでは振替休日も自動的に除外して計算しています。",
+  },
+  {
+    question: "年末年始やお盆は考慮されますか？",
+    answer:
+      "年末年始（12/29〜1/3）やお盆休みは、国民の祝日ではないため営業日に含まれます。会社独自の休日は手動で調整してください。",
+  },
+  {
+    question: "1か月の平均営業日数はどのくらい？",
+    answer:
+      "一般的に1か月の平均営業日数は約20日（年間約245〜250営業日 ÷ 12か月）です。ただし月によって19〜23日程度の幅があります。",
+  },
+];
+
 export default function EigyobiPage() {
   return (
     <>
       <Header />
+      <FAQPageJsonLd items={faqItems} />
       <WebApplicationJsonLd
         name="営業日計算 | 給料ラボ"
         url="https://kyuryo-lab.com/eigyobi"
@@ -112,8 +133,38 @@ export default function EigyobiPage() {
             </Link>
           </div>
         </section>
+        {/* FAQ */}
+        <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">
+            よくある質問
+          </h2>
+          <div className="space-y-6">
+            {faqItems.map((item) => (
+              <FaqItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+              />
+            ))}
+          </div>
+        </section>
       </main>
       <Footer />
     </>
+  );
+}
+
+function FaqItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) {
+  return (
+    <div>
+      <h3 className="font-semibold text-slate-700 mb-1">Q. {question}</h3>
+      <p className="text-sm text-slate-600 leading-relaxed">A. {answer}</p>
+    </div>
   );
 }

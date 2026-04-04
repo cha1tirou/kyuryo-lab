@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "プロジェクトの総工数から人日・人月・概算費用を無料で即計算。IT開発やプロジェクト管理に役立つ工数換算ツールです。",
   keywords: "工数計算,人日計算,人月計算,プロジェクト工数,見積もり",
+  alternates: { canonical: "/koji" },
   openGraph: {
     title: "工数・人日計算 | 人月・人日・費用を即計算 | 給料ラボ",
     description:

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description:
     "年収300万円から1000万円までの手取り額を早見表で一覧。独身・扶養あり・40歳以上のケース別に、社会保険料・税金の目安と手取り率を紹介。",
   keywords: "年収,手取り,早見表,年収別,手取り率,社会保険料",
+  alternates: { canonical: "/guide/nenshu-tedori-hayamihyou" },
   openGraph: {
     title: "年収別の手取り早見表 | 300万〜1000万円の手取り目安",
     description: "年収300万〜1000万円の手取り額を早見表で紹介。",
@@ -253,6 +254,19 @@ export default function NenshuHayamiPage() {
               >
                 手取り計算ツールを使う
               </Link>
+            </section>
+
+            {/* 関連記事 */}
+            <section>
+              <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <Link href="/guide/tedori-shikumi" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">手取り額の仕組み</p>
+                </Link>
+                <Link href="/guide/shakaihokenryou-guide" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">社会保険料の計算方法</p>
+                </Link>
+              </div>
             </section>
           </div>
         </article>

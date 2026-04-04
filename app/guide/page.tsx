@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "残業代の計算方法、手取り額の仕組み、社会保険料の基礎知識など、給与に関する情報をわかりやすく解説します。",
   keywords: "給与ガイド,残業代,手取り,社会保険,給与計算",
+  alternates: { canonical: "/guide" },
   openGraph: {
     title: "給与ガイド | 残業代・手取りの基礎知識 | 給料ラボ",
     description: "残業代や手取りの仕組みをわかりやすく解説。",

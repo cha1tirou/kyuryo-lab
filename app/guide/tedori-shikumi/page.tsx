@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description:
     "額面と手取りの違い、月給から天引きされる社会保険料・所得税・住民税の仕組みを図解つきでわかりやすく解説。年収帯別の手取り目安も紹介。",
   keywords: "手取り,額面,社会保険料,所得税,住民税,天引き",
+  alternates: { canonical: "/guide/tedori-shikumi" },
   openGraph: {
     title: "手取り額の仕組み | 額面と手取りの差はなぜ生まれる？",
     description: "額面と手取りの違い、天引きの仕組みをわかりやすく解説。",
@@ -219,6 +220,19 @@ export default function TedoriShikumiPage() {
               >
                 手取り計算ツールを使う
               </Link>
+            </section>
+
+            {/* 関連記事 */}
+            <section>
+              <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <Link href="/guide/shakaihokenryou-guide" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">社会保険料の計算方法</p>
+                </Link>
+                <Link href="/guide/nenshu-tedori-hayamihyou" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">年収���の手取り早見表</p>
+                </Link>
+              </div>
             </section>
           </div>
         </article>

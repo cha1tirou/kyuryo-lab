@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description:
     "会社員が負担する社会保険料の種類と計算方法を、令和6年度の最新料率で解説。標準報酬月額の仕組みや、手取りへの影響を具体例つきで紹介。",
   keywords: "社会保険料,健康保険,厚生年金,雇用保険,標準報酬月額,介護保険",
+  alternates: { canonical: "/guide/shakaihokenryou-guide" },
   openGraph: {
     title: "社会保険料の計算方法 | 健康保険・厚生年金・雇用保険",
     description: "社会保険料の種類と計算方法を令和6年度の料率で解説。",
@@ -180,6 +181,19 @@ export default function ShakaiHokenPage() {
               >
                 手取り計算ツールを使う
               </Link>
+            </section>
+
+            {/* 関連記事 */}
+            <section>
+              <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <Link href="/guide/tedori-shikumi" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">手取り額の仕組み</p>
+                </Link>
+                <Link href="/guide/nenshu-tedori-hayamihyou" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">年収別の手取り早見表</p>
+                </Link>
+              </div>
             </section>
           </div>
         </article>

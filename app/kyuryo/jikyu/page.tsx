@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "月給・年収から時給を無料で即計算。自分の時間単価を知ることで、残業の価値や転職時の比較に役立ちます。",
   keywords: "時給換算,時給計算,月給から時給,年収から時給,時間単価",
+  alternates: { canonical: "/kyuryo/jikyu" },
   openGraph: {
     title: "時給換算計算 | 月給・年収から時給を計算 | 給料ラボ",
     description:

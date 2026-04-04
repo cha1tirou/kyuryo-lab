@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description:
     "2023年4月から中小企業にも適用された月60時間超の残業割増率50%への引き上げ。改正のポイント、計算例、企業が取るべき対応を解説。",
   keywords: "残業代,60時間,50%増,割増率,2023年改正,中小企業",
+  alternates: { canonical: "/guide/zangyou-60jikan-rule" },
   openGraph: {
     title: "月60時間超の残業代は50%増 | 2023年改正のポイント",
     description: "月60時間超の残業代50%増の改正ポイントを計算例つきで解説。",
@@ -225,6 +226,19 @@ export default function Zangyou60Page() {
               >
                 残業代計算ツールを使う
               </Link>
+            </section>
+
+            {/* 関連記事 */}
+            <section>
+              <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <Link href="/guide/zangyoudai-keisan-houhou" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">残業代の計算方法を徹底解説</p>
+                </Link>
+                <Link href="/guide/tedori-shikumi" className="block rounded-xl border border-slate-200 p-4 hover:bg-slate-50 transition-colors">
+                  <p className="font-medium text-slate-700 text-sm">手取り額の仕組み</p>
+                </Link>
+              </div>
             </section>
           </div>
         </article>

@@ -5,6 +5,7 @@ import TakehomeCalculator from "../../../components/calculators/takehome-calcula
 import Link from "next/link";
 import {
   WebApplicationJsonLd,
+  FAQPageJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "月収から社会保険料・所得税・住民税を差し引いた手取り額を無料で即計算。協会けんぽ（令和6年度）の料率で、健康保険・厚生年金・雇用保険の内訳も表示します。",
   keywords: "手取り計算,給与手取り,月収,社会保険料,所得税",
+  alternates: { canonical: "/kyuryo/tetsuke" },
   openGraph: {
     title: "給与手取り計算 | 月収から手取り額を即計算 | 給料ラボ",
     description:
@@ -21,10 +23,34 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  {
+    question: "額面30万円の手取りはいくら？",
+    answer:
+      "額面30万円（独身・30歳）の場合、手取りは約23〜24万円が目安です。社会保険料が約4.5万円、所得税・住民税が約2万円ほど差し引かれます。",
+  },
+  {
+    question: "手取りが増える方法はありますか？",
+    answer:
+      "iDeCo（個人型確定拠出年金）やふるさと納税を活用すると、所得控除が増えて税金が減り、実質的な手取りが増えます。また、扶養控除や配偶者控除も有効です。",
+  },
+  {
+    question: "住民税が引かれるのは2年目からですか？",
+    answer:
+      "住民税は前年の所得に基づいて課税されるため、新卒1年目は住民税がかからず、2年目の6月から天引きが始まります。そのため2年目に手取りが減ったと感じる方が多いです。",
+  },
+  {
+    question: "40歳以上で手取りが減るのはなぜ？",
+    answer:
+      "40歳になると介護保険料（給与の約0.91%）の負担が始まるため、その分だけ手取りが減ります。月収30万円の場合、月額約2,700円程度の負担増です。",
+  },
+];
+
 export default function TetsukePage() {
   return (
     <>
       <Header />
+      <FAQPageJsonLd items={faqItems} />
       <WebApplicationJsonLd
         name="給与手取り計算 | 給料ラボ"
         url="https://kyuryo-lab.com/kyuryo/tetsuke"
@@ -107,9 +133,40 @@ export default function TetsukePage() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">
+            よくある質問
+          </h2>
+          <div className="space-y-6">
+            {faqItems.map((item) => (
+              <FaqItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+              />
+            ))}
+          </div>
+        </section>
+
         {/* AdSense slot */}
       </main>
       <Footer />
     </>
+  );
+}
+
+function FaqItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) {
+  return (
+    <div>
+      <h3 className="font-semibold text-slate-700 mb-1">Q. {question}</h3>
+      <p className="text-sm text-slate-600 leading-relaxed">A. {answer}</p>
+    </div>
   );
 }

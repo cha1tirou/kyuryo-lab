@@ -33,6 +33,12 @@ export default function Header() {
             営業日計算
           </Link>
           <Link
+            href="/koji"
+            className="text-slate-600 hover:text-blue-600 transition-colors"
+          >
+            工数計算
+          </Link>
+          <Link
             href="/guide"
             className="text-slate-600 hover:text-blue-600 transition-colors"
           >

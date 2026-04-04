@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "残業時間・深夜・休日出勤の残業代を無料で即計算。スマホで使いやすいシンプルなUIで、時間外・深夜・法定休日の割増賃金を正確に算出します。",
   keywords: "残業代計算,残業代,計算,割増賃金,時間外労働",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "残業代計算 | 無料で即計算・スマホ対応 | 給料ラボ",
     description:
