@@ -18,5 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/guide/juuminzei-keisan`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/guide/kyuyo-meisai-mikata`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/guide/saitei-chingin`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/nenmatsu-chousei`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/bonus-zeikin`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/taishokukin-zeikin`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/fuyou-kojo-guide`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ]
 }

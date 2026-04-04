@@ -19,6 +19,10 @@ const guideLinks = [
   { href: "/guide/juuminzei-keisan", label: "住民税の計算方法" },
   { href: "/guide/kyuyo-meisai-mikata", label: "給与明細の見方" },
   { href: "/guide/saitei-chingin", label: "最低賃金一覧" },
+  { href: "/guide/nenmatsu-chousei", label: "年末調整の仕組み" },
+  { href: "/guide/bonus-zeikin", label: "ボーナスの手取り" },
+  { href: "/guide/taishokukin-zeikin", label: "退職金の税金" },
+  { href: "/guide/fuyou-kojo-guide", label: "扶養控除と103万の壁" },
 ];
 
 export default function Footer() {
