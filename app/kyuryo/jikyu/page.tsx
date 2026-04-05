@@ -9,7 +9,6 @@ import {
   FAQPageJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
-import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "時給換算計算 | 月給・年収から時給を計算 | 給料ラボ",
@@ -80,8 +79,6 @@ export default function JikyuPage() {
         <section className="mb-12">
           <JikyuCalculator />
         </section>
-
-        <AdSenseUnit slot="1234567894" />
 
         {/* Explanation Section */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -178,8 +175,6 @@ export default function JikyuPage() {
             ))}
           </div>
         </section>
-
-        <AdSenseUnit slot="1234567895" />
       </main>
       <Footer />
     </>
