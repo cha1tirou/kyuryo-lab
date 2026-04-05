@@ -7,6 +7,7 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "給与明細の見方 | 項目・控除を完全ガイド | 給料ラボ",
@@ -68,6 +69,8 @@ export default function KyuyoMeisaiPage() {
                 <li><a href="#check" className="hover:underline">給与明細で確認すべきポイント</a></li>
               </ol>
             </nav>
+
+            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="kosei">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 給与明細の3つの構成</h2>
@@ -277,6 +280,8 @@ export default function KyuyoMeisaiPage() {
                 手取り計算ツールを使う
               </Link>
             </section>
+
+            <AdSenseUnit slot="guide-ad-2" />
 
             <section>
               <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>

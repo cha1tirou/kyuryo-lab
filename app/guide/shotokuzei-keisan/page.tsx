@@ -7,6 +7,7 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "所得税の計算方法 | 税率・控除をわかりやすく解説 | 給料ラボ",
@@ -70,6 +71,8 @@ export default function ShotokuzeiPage() {
                 <li><a href="#nenmatsu-chosei" className="hover:underline">年末調整と確定申告</a></li>
               </ol>
             </nav>
+
+            <AdSenseUnit slot="guide-ad-1" />
 
             {/* Section 1 */}
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="shikumi">
@@ -321,6 +324,8 @@ export default function ShotokuzeiPage() {
                 手取り計算ツールを使う
               </Link>
             </section>
+
+            <AdSenseUnit slot="guide-ad-2" />
 
             {/* 関連記事 */}
             <section>

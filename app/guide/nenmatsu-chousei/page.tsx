@@ -7,6 +7,7 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "年末調整の仕組みと書き方 | 控除・還付をわかりやすく解説 | 給料ラボ",
@@ -68,6 +69,8 @@ export default function NenmatsuChouseiPage() {
                 <li><a href="#kakutei" className="hover:underline">確定申告が必要なケース</a></li>
               </ol>
             </nav>
+
+            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="shikumi">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 年末調整とは</h2>
@@ -247,6 +250,8 @@ export default function NenmatsuChouseiPage() {
                 手取り計算ツールを使う
               </Link>
             </section>
+
+            <AdSenseUnit slot="guide-ad-2" />
 
             <section>
               <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>

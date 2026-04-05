@@ -7,6 +7,7 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "月60時間超の残業代は50%増 | 2023年改正のポイント | 給料ラボ",
@@ -68,6 +69,8 @@ export default function Zangyou60Page() {
                 <li><a href="#taiou" className="hover:underline">企業の対応ポイント</a></li>
               </ol>
             </nav>
+
+            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="kaisei">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 2023年法改正の概要</h2>
@@ -246,6 +249,8 @@ export default function Zangyou60Page() {
                 残業代計算ツールを使う
               </Link>
             </section>
+
+            <AdSenseUnit slot="guide-ad-2" />
 
             {/* 関連記事 */}
             <section>

@@ -7,6 +7,7 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "住民税の計算方法 | 税率10%の仕組みと計算例 | 給料ラボ",
@@ -69,6 +70,8 @@ export default function JuuminzeiPage() {
                 <li><a href="#furusato" className="hover:underline">ふるさと納税で住民税を減らす</a></li>
               </ol>
             </nav>
+
+            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="shikumi">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 住民税の基本的な仕組み</h2>
@@ -202,6 +205,8 @@ export default function JuuminzeiPage() {
                 手取り計算ツールを使う
               </Link>
             </section>
+
+            <AdSenseUnit slot="guide-ad-2" />
 
             <section>
               <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>

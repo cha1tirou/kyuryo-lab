@@ -7,6 +7,7 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "手取り額の仕組み | 額面と手取りの差はなぜ生まれる？ | 給料ラボ",
@@ -68,6 +69,8 @@ export default function TedoriShikumiPage() {
                 <li><a href="#meyasu" className="hover:underline">年収帯別の手取り目安</a></li>
               </ol>
             </nav>
+
+            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="gakumen-tedori">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 額面と手取りの違い</h2>
@@ -246,6 +249,8 @@ export default function TedoriShikumiPage() {
                 手取り計算ツールを使う
               </Link>
             </section>
+
+            <AdSenseUnit slot="guide-ad-2" />
 
             {/* 関連記事 */}
             <section>

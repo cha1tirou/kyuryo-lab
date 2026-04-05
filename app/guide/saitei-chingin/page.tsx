@@ -7,6 +7,7 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "最低賃金一覧（2024年度）| 都道府県別・時給換算チェック | 給料ラボ",
@@ -118,6 +119,8 @@ export default function SaiteiChinginPage() {
                 <li><a href="#ihan" className="hover:underline">最低賃金を下回った場合</a></li>
               </ol>
             </nav>
+
+            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="ichiran">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 都道府県別 最低賃金一覧（2024年10月〜）</h2>
@@ -235,6 +238,8 @@ export default function SaiteiChinginPage() {
                 時給換算ツールを使う
               </Link>
             </section>
+
+            <AdSenseUnit slot="guide-ad-2" />
 
             <section>
               <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>

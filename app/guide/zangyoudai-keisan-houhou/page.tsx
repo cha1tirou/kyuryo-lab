@@ -7,6 +7,7 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "残業代の計算方法を徹底解説 | 割増率・計算例つき | 給料ラボ",
@@ -69,6 +70,8 @@ export default function ZangyoudaiKeisanPage() {
                 <li><a href="#jogai" className="hover:underline">基礎時給から除外される手当</a></li>
               </ol>
             </nav>
+
+            <AdSenseUnit slot="guide-ad-1" />
 
             {/* Section 1 */}
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="kiso-jikyu">
@@ -234,6 +237,8 @@ export default function ZangyoudaiKeisanPage() {
                 残業代計算ツールを使う
               </Link>
             </section>
+
+            <AdSenseUnit slot="guide-ad-2" />
 
             {/* 関連記事 */}
             <section>
