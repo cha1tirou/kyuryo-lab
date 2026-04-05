@@ -5,6 +5,7 @@ import InputField from "../ui/input-field";
 import ResultCard from "../ui/result-card";
 import { calcTakehome } from "../../lib/calc/takehome";
 import { formatCurrency } from "../../lib/utils";
+import ShareButtons from "../ui/share-buttons";
 
 export default function TakehomeCalculator() {
   const [monthlyIncome, setMonthlyIncome] = useState(300000);
@@ -140,6 +141,10 @@ export default function TakehomeCalculator() {
           ※
           計算結果は概算です。標準報酬月額の等級や自治体による差異は考慮していません。
         </p>
+        <ShareButtons
+          text={`月収${formatCurrency(monthlyIncome)}の手取りは${formatCurrency(result.takeHome)}でした（給料ラボで計算）`}
+          url="https://kyuryo-lab.com/kyuryo/tetsuke"
+        />
       </div>
     </div>
   );

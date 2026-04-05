@@ -7,7 +7,6 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
-import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "社会保険料の計算方法 | 健康保険・厚生年金・雇用保険 | 給料ラボ",
@@ -71,7 +70,6 @@ export default function ShakaiHokenPage() {
               </ol>
             </nav>
 
-            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="gaiyou">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 社会保険料とは</h2>
@@ -211,7 +209,6 @@ export default function ShakaiHokenPage() {
               </Link>
             </section>
 
-            <AdSenseUnit slot="guide-ad-2" />
 
             {/* 関連記事 */}
             <section>

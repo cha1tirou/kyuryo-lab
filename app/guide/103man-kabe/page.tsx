@@ -7,7 +7,6 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
-import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "103万円の壁とは？超えたらどうなる？影響と対策を解説 | 給料ラボ",
@@ -103,7 +102,6 @@ export default function Man103KabePage() {
               </ol>
             </nav>
 
-            <AdSenseUnit slot="guide-ad-1" />
 
             <section
               className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
@@ -450,7 +448,6 @@ export default function Man103KabePage() {
               </Link>
             </section>
 
-            <AdSenseUnit slot="guide-ad-2" />
 
             {/* 関連記事 */}
             <section>

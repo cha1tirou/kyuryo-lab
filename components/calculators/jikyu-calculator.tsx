@@ -5,6 +5,7 @@ import InputField from "../ui/input-field";
 import ResultCard from "../ui/result-card";
 import { calcJikyu } from "../../lib/calc/jikyu";
 import { formatCurrency } from "../../lib/utils";
+import ShareButtons from "../ui/share-buttons";
 
 export default function JikyuCalculator() {
   const [salaryType, setSalaryType] = useState<"monthly" | "annual">("monthly");
@@ -99,6 +100,10 @@ export default function JikyuCalculator() {
         <p className="mt-4 text-xs text-slate-400">
           ※ 計算結果は概算です。賞与・手当等は含まれていません。
         </p>
+        <ShareButtons
+          text={`時給換算すると${formatCurrency(result.hourlyRate)}でした（給料ラボで計算）`}
+          url="https://kyuryo-lab.com/kyuryo/jikyu"
+        />
       </div>
     </div>
   );

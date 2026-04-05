@@ -5,6 +5,7 @@ import InputField from "../ui/input-field";
 import ResultCard from "../ui/result-card";
 import { calcOvertime } from "../../lib/calc/overtime";
 import { formatCurrency } from "../../lib/utils";
+import ShareButtons from "../ui/share-buttons";
 
 export default function OvertimeCalculator() {
   const [monthlySalary, setMonthlySalary] = useState(250000);
@@ -107,6 +108,10 @@ export default function OvertimeCalculator() {
         <p className="mt-4 text-xs text-slate-400">
           ※ 計算結果は概算です。実際の金額とは異なる場合があります。
         </p>
+        <ShareButtons
+          text={`残業代は${formatCurrency(result.totalOvertimePay)}でした（給料ラボで計算）`}
+          url="https://kyuryo-lab.com/"
+        />
       </div>
     </div>
   );

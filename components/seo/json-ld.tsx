@@ -95,6 +95,40 @@ export function FAQPageJsonLd({
   );
 }
 
+export function CollectionPageJsonLd({
+  name,
+  description,
+  url,
+  items,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  items: { name: string; url: string }[];
+}) {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name,
+        description,
+        url,
+        inLanguage: "ja",
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: items.map((item, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: item.name,
+            url: item.url,
+          })),
+        },
+      }}
+    />
+  );
+}
+
 export function BreadcrumbJsonLd({
   items,
 }: {

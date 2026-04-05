@@ -7,7 +7,6 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
-import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "扶養控除と103万円の壁 | 年収の壁を完全解説 | 給料ラボ",
@@ -71,7 +70,6 @@ export default function FuyouKojoPage() {
               </ol>
             </nav>
 
-            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="ichiran">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 年収の壁一覧</h2>
@@ -298,7 +296,6 @@ export default function FuyouKojoPage() {
               </Link>
             </section>
 
-            <AdSenseUnit slot="guide-ad-2" />
 
             <section>
               <h2 className="text-xl font-semibold text-slate-800 mb-4">関連記事</h2>

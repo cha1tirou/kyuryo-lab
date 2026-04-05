@@ -7,7 +7,6 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
-import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "年収別の手取り早見表 | 300万〜1000万円の手取り目安 | 給料ラボ",
@@ -70,7 +69,6 @@ export default function NenshuHayamiPage() {
               </ol>
             </nav>
 
-            <AdSenseUnit slot="guide-ad-1" />
 
             <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm" id="dokushin">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. 独身・扶養なしの手取り早見表</h2>
@@ -284,7 +282,6 @@ export default function NenshuHayamiPage() {
               </Link>
             </section>
 
-            <AdSenseUnit slot="guide-ad-2" />
 
             {/* 関連記事 */}
             <section>

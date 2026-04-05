@@ -3,7 +3,7 @@ import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import Link from "next/link";
 import Breadcrumb from "../../components/ui/breadcrumb";
-import { BreadcrumbJsonLd } from "../../components/seo/json-ld";
+import { BreadcrumbJsonLd, CollectionPageJsonLd } from "../../components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "給与ガイド | 残業代・手取りの基礎知識 | 給料ラボ",
@@ -126,6 +126,15 @@ export default function GuidePage() {
           { name: "ホーム", url: "https://kyuryo-lab.com/" },
           { name: "給与ガイド", url: "https://kyuryo-lab.com/guide" },
         ]}
+      />
+      <CollectionPageJsonLd
+        name="給与ガイド"
+        description="残業代の計算方法、手取り額の仕組み、社会保険料の基礎知識など、給与に関する情報をわかりやすく解説します。"
+        url="https://kyuryo-lab.com/guide"
+        items={guides.map((g) => ({
+          name: g.title,
+          url: `https://kyuryo-lab.com/guide/${g.slug}`,
+        }))}
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[

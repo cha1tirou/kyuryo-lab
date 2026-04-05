@@ -7,7 +7,6 @@ import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
-import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title:
@@ -107,7 +106,6 @@ export default function ShakaiHokenKanyuJoukenPage() {
               </ol>
             </nav>
 
-            <AdSenseUnit slot="guide-ad-1" />
 
             <section
               className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
@@ -689,7 +687,6 @@ export default function ShakaiHokenKanyuJoukenPage() {
               </Link>
             </section>
 
-            <AdSenseUnit slot="guide-ad-2" />
 
             {/* 関連記事 */}
             <section>
