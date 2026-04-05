@@ -26,6 +26,9 @@ const guideLinks = [
   { href: "/guide/103man-kabe", label: "103万円の壁とは" },
   { href: "/guide/shakai-hoken-kanyu-jouken", label: "社会保険の加入条件" },
   { href: "/guide/yukyu-kyuka-keisan", label: "有給休暇の計算方法" },
+  { href: "/guide/nenshuu-heikin", label: "平均年収まとめ" },
+  { href: "/guide/zangyou-jikan-joigen", label: "残業時間の上限規制" },
+  { href: "/guide/fuyou-nai-hatarakikata", label: "扶養内で働く方法" },
 ];
 
 export default function Footer() {

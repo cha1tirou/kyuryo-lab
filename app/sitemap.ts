@@ -31,5 +31,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/guide/103man-kabe`, lastModified: '2025-04-05', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/guide/shakai-hoken-kanyu-jouken`, lastModified: '2025-04-05', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/guide/yukyu-kyuka-keisan`, lastModified: '2025-04-05', changeFrequency: 'monthly', priority: 0.7 },
+    // New SEO articles (Week 3)
+    { url: `${base}/guide/nenshuu-heikin`, lastModified: '2026-04-05', changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/zangyou-jikan-joigen`, lastModified: '2026-04-05', changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/guide/fuyou-nai-hatarakikata`, lastModified: '2026-04-05', changeFrequency: 'monthly', priority: 0.7 },
   ]
 }
