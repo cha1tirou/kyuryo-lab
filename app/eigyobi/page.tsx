@@ -9,6 +9,7 @@ import {
   FAQPageJsonLd,
   BreadcrumbJsonLd,
 } from "../../components/seo/json-ld";
+import AdSenseUnit from "../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "営業日計算 | 期間の営業日数を即計算 | 給料ラボ",
@@ -79,6 +80,8 @@ export default function EigyobiPage() {
         <section className="mb-12">
           <EigyobiCalculator />
         </section>
+
+        <AdSenseUnit slot="1234567896" />
 
         {/* Explanation Section */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -170,6 +173,8 @@ export default function EigyobiPage() {
             ))}
           </div>
         </section>
+
+        <AdSenseUnit slot="1234567897" />
       </main>
       <Footer />
     </>

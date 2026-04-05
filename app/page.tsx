@@ -9,6 +9,7 @@ import {
   FAQPageJsonLd,
   BreadcrumbJsonLd,
 } from "../components/seo/json-ld";
+import AdSenseUnit from "../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "残業代計算 | 無料で即計算・スマホ対応 | 給料ラボ",
@@ -84,6 +85,8 @@ export default function Home() {
         <section className="mb-12">
           <OvertimeCalculator />
         </section>
+
+        <AdSenseUnit slot="1234567890" />
 
         {/* 計算方法の解説 */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -216,7 +219,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* AdSense slot */}
+        <AdSenseUnit slot="1234567891" />
       </main>
       <Footer />
     </>

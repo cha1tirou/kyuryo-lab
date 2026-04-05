@@ -11,15 +11,15 @@
 
 > Claude Codeを使い始める前に手動で行う
 
-- [ ] `kyuryo-lab.com`（または類似）ドメインを取得
+- [x] `kyuryo-lab.com`（または類似）ドメインを取得
   - 候補: お名前.com / Cloudflare Registrar
   - 年額 1,000〜2,000円程度
-- [ ] Vercelで新規プロジェクト作成
+- [x] Vercelで新規プロジェクト作成
   - GitHubリポジトリを先に作成してから連携
   - Framework: Next.js を選択
-- [ ] `npx create-next-app@latest kyuryo-lab --typescript --tailwind --eslint --app` を実行
-- [ ] GitHubに push してVercelに自動デプロイされることを確認
-- [ ] VercelのProject SettingsでカスタムドメインをDNS設定
+- [x] `npx create-next-app@latest kyuryo-lab --typescript --tailwind --eslint --app` を実行
+- [x] GitHubに push してVercelに自動デプロイされることを確認
+- [x] VercelのProject SettingsでカスタムドメインをDNS設定
 
 ---
 
@@ -155,5 +155,5 @@
 - [x] 既存ページの「準備中」リンクを実リンクに変更
 
 ### 2-4. 未着手（人間側タスク）
-- [ ] AdSense申請
-- [ ] Google Search Console 設定
+- [x] AdSense申請
+- [x] Google Search Console 設定

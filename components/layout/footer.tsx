@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AdSenseUnit from "../ads/adsense-unit";
 
 const toolLinks = [
   { href: "/", label: "残業代計算" },
@@ -74,7 +75,7 @@ export default function Footer() {
           </p>
           <p>&copy; {new Date().getFullYear()} 給料ラボ</p>
         </div>
-        {/* AdSense slot */}
+        <AdSenseUnit slot="footer-ad" format="horizontal" />
       </div>
     </footer>
   );

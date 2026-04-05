@@ -9,6 +9,7 @@ import {
   FAQPageJsonLd,
   BreadcrumbJsonLd,
 } from "../../../components/seo/json-ld";
+import AdSenseUnit from "../../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "給与手取り計算 | 月収から手取り額を即計算 | 給料ラボ",
@@ -84,6 +85,8 @@ export default function TetsukePage() {
         <section className="mb-12">
           <TakehomeCalculator />
         </section>
+
+        <AdSenseUnit slot="1234567892" />
 
         {/* 計算方法の解説 */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -179,7 +182,7 @@ export default function TetsukePage() {
           </div>
         </section>
 
-        {/* AdSense slot */}
+        <AdSenseUnit slot="1234567893" />
       </main>
       <Footer />
     </>

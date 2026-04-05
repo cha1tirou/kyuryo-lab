@@ -9,6 +9,7 @@ import {
   FAQPageJsonLd,
   BreadcrumbJsonLd,
 } from "../../components/seo/json-ld";
+import AdSenseUnit from "../../components/ads/adsense-unit";
 
 export const metadata: Metadata = {
   title: "工数・人日計算 | 人月・人日・費用を即計算 | 給料ラボ",
@@ -79,6 +80,8 @@ export default function KojiPage() {
         <section className="mb-12">
           <KojiCalculator />
         </section>
+
+        <AdSenseUnit slot="1234567898" />
 
         {/* Explanation Section */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -167,6 +170,8 @@ export default function KojiPage() {
             ))}
           </div>
         </section>
+
+        <AdSenseUnit slot="1234567899" />
       </main>
       <Footer />
     </>
