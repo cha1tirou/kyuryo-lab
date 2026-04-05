@@ -133,6 +133,24 @@ const guides = [
     description:
       "扶養内で働くための条件と年収の壁（103万・106万・130万・150万）を一覧で解説。申請手続きや手取りシミュレーションも。",
   },
+  {
+    slug: "fukugyou-zeikin",
+    title: "副業の税金と確定申告 | 20万円ルール・計算方法を解説",
+    description:
+      "副業の所得にかかる税金と確定申告の条件・手順を解説。20万円ルール、経費、会社バレ防止の方法、年収別シミュレーションも。",
+  },
+  {
+    slug: "tenshoku-kyuyo-koushou",
+    title: "転職の給与交渉を成功させるコツと例文",
+    description:
+      "転職時の給与交渉のタイミング、希望年収の決め方、具体的な伝え方・例文、業界別の年収相場を解説。",
+  },
+  {
+    slug: "shakaihokenryou-setuyaku",
+    title: "社会保険料を安くする方法 | 合法的な節約術を解説",
+    description:
+      "社会保険料を合法的に安くする方法を解説。4-6月の残業調整、iDeCo活用、月給別のシミュレーションも。",
+  },
 ];
 
 export default function GuidePage() {

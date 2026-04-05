@@ -29,6 +29,9 @@ const guideLinks = [
   { href: "/guide/nenshuu-heikin", label: "平均年収まとめ" },
   { href: "/guide/zangyou-jikan-joigen", label: "残業時間の上限規制" },
   { href: "/guide/fuyou-nai-hatarakikata", label: "扶養内で働く方法" },
+  { href: "/guide/fukugyou-zeikin", label: "副業の税金と確定申告" },
+  { href: "/guide/tenshoku-kyuyo-koushou", label: "転職の給与交渉" },
+  { href: "/guide/shakaihokenryou-setuyaku", label: "社会保険料の節約" },
 ];
 
 export default function Footer() {
