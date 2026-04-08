@@ -151,6 +151,36 @@ const guides = [
     description:
       "社会保険料を合法的に安くする方法を解説。4-6月の残業調整、iDeCo活用、月給別のシミュレーションも。",
   },
+  {
+    slug: "sankyuu-ikukyuu-kyuufu",
+    title: "産休・育休の手当と給付金 | 計算方法とシミュレーション",
+    description:
+      "出産手当金・育児休業給付金の計算方法、社会保険料免除の仕組み、月給別シミュレーションを解説。",
+  },
+  {
+    slug: "minashi-zangyou",
+    title: "みなし残業（固定残業代）の仕組みと注意点",
+    description:
+      "固定残業代の計算方法、適法要件、求人票の見方、違法なケースの見分け方を解説。",
+  },
+  {
+    slug: "part-nenmatsu-chousei",
+    title: "パート・アルバイトの年末調整 | 必要書類と手取りへの影響",
+    description:
+      "パート・アルバイトの年末調整の条件、必要書類、還付金の目安、掛け持ちの確定申告を解説。",
+  },
+  {
+    slug: "ideco-setuzei",
+    title: "iDeCoの節税効果と手取りへの影響 | シミュレーション付き",
+    description:
+      "iDeCoの3つの節税メリット、年収別・掛金別の節税シミュレーション、企業型DCとの比較を解説。",
+  },
+  {
+    slug: "kaigo-hokenryou",
+    title: "介護保険料とは？40歳からの負担額と計算方法",
+    description:
+      "40歳から天引きされる介護保険料の計算方法、月給別一覧表、39歳と40歳の手取り比較を解説。",
+  },
 ];
 
 export default function GuidePage() {
