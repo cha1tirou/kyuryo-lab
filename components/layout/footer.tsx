@@ -80,7 +80,6 @@ export default function Footer() {
           </p>
           <p>&copy; {new Date().getFullYear()} 給料ラボ</p>
         </div>
-        {/* AdSense slot */}
       </div>
     </footer>
   );

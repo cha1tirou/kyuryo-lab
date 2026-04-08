@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import JikyuCalculator from "../../../components/calculators/jikyu-calculator";
+import AdUnit from "../../../components/ads/ad-unit";
 import Link from "next/link";
 import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
@@ -79,6 +80,8 @@ export default function JikyuPage() {
         <section className="mb-12">
           <JikyuCalculator />
         </section>
+
+        <AdUnit slot="3456789012" format="horizontal" />
 
         {/* Explanation Section */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -159,6 +162,8 @@ export default function JikyuPage() {
             </Link>
           </div>
         </section>
+
+        <AdUnit slot="3456789013" />
 
         {/* FAQ */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import EigyobiCalculator from "../../components/calculators/eigyobi-calculator";
+import AdUnit from "../../components/ads/ad-unit";
 import Link from "next/link";
 import Breadcrumb from "../../components/ui/breadcrumb";
 import {
@@ -80,6 +81,8 @@ export default function EigyobiPage() {
           <EigyobiCalculator />
         </section>
 
+        <AdUnit slot="4567890123" format="horizontal" />
+
         {/* Explanation Section */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-800 mb-4">
@@ -154,6 +157,8 @@ export default function EigyobiPage() {
             </Link>
           </div>
         </section>
+
+        <AdUnit slot="4567890124" />
 
         {/* FAQ */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">

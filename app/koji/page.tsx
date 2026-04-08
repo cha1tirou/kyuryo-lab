@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import KojiCalculator from "../../components/calculators/koji-calculator";
+import AdUnit from "../../components/ads/ad-unit";
 import Link from "next/link";
 import Breadcrumb from "../../components/ui/breadcrumb";
 import {
@@ -80,6 +81,8 @@ export default function KojiPage() {
           <KojiCalculator />
         </section>
 
+        <AdUnit slot="5678901234" format="horizontal" />
+
         {/* Explanation Section */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-800 mb-4">
@@ -151,6 +154,8 @@ export default function KojiPage() {
             </Link>
           </div>
         </section>
+
+        <AdUnit slot="5678901235" />
 
         {/* FAQ */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">

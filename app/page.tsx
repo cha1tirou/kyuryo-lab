@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../components/layout/header";
 import Footer from "../components/layout/footer";
 import OvertimeCalculator from "../components/calculators/overtime-calculator";
+import AdUnit from "../components/ads/ad-unit";
 import Link from "next/link";
 import Breadcrumb from "../components/ui/breadcrumb";
 import {
@@ -84,6 +85,9 @@ export default function Home() {
         <section className="mb-12">
           <OvertimeCalculator />
         </section>
+
+        {/* 広告: 計算ツール下 */}
+        <AdUnit slot="1234567890" format="horizontal" />
 
         {/* 計算方法の解説 */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -200,6 +204,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 広告: FAQ前 */}
+        <AdUnit slot="1234567891" />
+
         {/* FAQ */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-800 mb-4">
@@ -216,7 +223,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* AdSense slot */}
       </main>
       <Footer />
     </>
