@@ -6,6 +6,7 @@ import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
+  FAQPageJsonLd,
 } from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
@@ -39,6 +40,22 @@ export default function KaigoHokenryouPage() {
           {
             name: "介護保険料の計算",
             url: "https://kyuryo-lab.com/guide/kaigo-hokenryou",
+          },
+        ]}
+      />
+      <FAQPageJsonLd
+        items={[
+          {
+            question: "パートやアルバイトでも介護保険料は引かれますか？",
+            answer: "社会保険に加入している40歳以上の方であれば、パート・アルバイトでも介護保険料は天引きされます。社会保険の加入条件を満たしているかがポイントです。",
+          },
+          {
+            question: "介護保険料は年末調整や確定申告で控除できますか？",
+            answer: "はい、介護保険料は社会保険料控除の対象です。会社員の場合は年末調整で自動的に控除されるため特別な手続きは不要です。",
+          },
+          {
+            question: "介護保険料を払っていても、40〜64歳は介護サービスを使えないのですか？",
+            answer: "第2号被保険者（40〜64歳）でも、特定疾病（末期がん、関節リウマチなど16種類）が原因で要介護状態になった場合は介護サービスを利用できます。",
           },
         ]}
       />

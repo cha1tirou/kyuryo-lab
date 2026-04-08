@@ -6,6 +6,7 @@ import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
+  FAQPageJsonLd,
 } from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
@@ -39,6 +40,22 @@ export default function PartNenmatsuChouseiPage() {
           {
             name: "パートの年末調整",
             url: "https://kyuryo-lab.com/guide/part-nenmatsu-chousei",
+          },
+        ]}
+      />
+      <FAQPageJsonLd
+        items={[
+          {
+            question: "年末調整の書類を出し忘れたらどうなる？",
+            answer: "勤務先で年末調整が行われません。その場合は翌年に自分で確定申告をすれば同様に税金の精算ができます。還付申告であれば1月1日から5年間申告可能です。",
+          },
+          {
+            question: "短期バイトや単発バイトでも年末調整は必要？",
+            answer: "扶養控除等申告書を提出していて12月31日時点で在籍していれば年末調整の対象です。短期間で辞めた場合は源泉徴収票をもらって確定申告で精算しましょう。",
+          },
+          {
+            question: "学生アルバイトでも年末調整は必要？",
+            answer: "学生でも年末調整は必要です。勤労学生控除（27万円）が適用でき年収130万円まで所得税が非課税になりますが、103万円を超えると親の扶養控除から外れる点に注意が必要です。",
           },
         ]}
       />

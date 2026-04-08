@@ -6,6 +6,7 @@ import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
+  FAQPageJsonLd,
 } from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
@@ -40,6 +41,22 @@ export default function IdecoSetuzeiPage() {
           {
             name: "iDeCoの節税効果",
             url: "https://kyuryo-lab.com/guide/ideco-setuzei",
+          },
+        ]}
+      />
+      <FAQPageJsonLd
+        items={[
+          {
+            question: "iDeCoとNISAはどちらを優先すべき？",
+            answer: "老後資金目的であればiDeCoの節税効果（掛金の所得控除）が確実なのでiDeCo優先がおすすめです。ただし60歳まで引き出せないため、近い将来使う資金はNISAが柔軟です。",
+          },
+          {
+            question: "転職・退職したらiDeCoはどうなる？",
+            answer: "転職先に企業型DCがあれば移換、なければiDeCoを継続できます。自営業者や専業主婦になっても加入者区分を変更して拠出を続けられ、資産が失われることはありません。",
+          },
+          {
+            question: "掛金を途中で変更・停止できる？",
+            answer: "掛金の変更は年1回可能です。拠出を一時停止して運用指図者に切り替えることもできますが、口座管理手数料はかかるため最低額5,000円/月でも拠出を続けるのが有利です。",
           },
         ]}
       />

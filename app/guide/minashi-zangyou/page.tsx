@@ -6,6 +6,7 @@ import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
+  FAQPageJsonLd,
 } from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
@@ -39,6 +40,22 @@ export default function MinashiZangyouPage() {
           {
             name: "みなし残業の仕組み",
             url: "https://kyuryo-lab.com/guide/minashi-zangyou",
+          },
+        ]}
+      />
+      <FAQPageJsonLd
+        items={[
+          {
+            question: "固定残業時間より少なく働いた月は、給料が減りますか？",
+            answer: "いいえ、減額されません。固定残業代は実際の残業時間にかかわらず定額で支給されます。残業が0時間でも全額支給されます。",
+          },
+          {
+            question: "固定残業代は残業代の前払いですか？",
+            answer: "法的には「一定時間分の残業代を定額で支払う制度」です。固定残業時間を超えた分は追加支給が必要で、残業が少ない月でも返還を求めることはできません。",
+          },
+          {
+            question: "入社後に固定残業代制度を導入されました。拒否できますか？",
+            answer: "固定残業代制度の導入は労働条件の変更にあたります。基本給の実質的な引き下げを伴う場合は労働者の同意が必要で、一方的な不利益変更は労働基準監督署や弁護士に相談できます。",
           },
         ]}
       />

@@ -6,6 +6,7 @@ import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
   ArticleJsonLd,
   BreadcrumbJsonLd,
+  FAQPageJsonLd,
 } from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
@@ -41,6 +42,22 @@ export default function SankyuuIkukyuuKyuufuPage() {
           {
             name: "産休・育休の手当と給付金",
             url: "https://kyuryo-lab.com/guide/sankyuu-ikukyuu-kyuufu",
+          },
+        ]}
+      />
+      <FAQPageJsonLd
+        items={[
+          {
+            question: "パート・アルバイトでも産休・育休は取得できますか？",
+            answer: "産休はすべての女性労働者が取得できます。育休は有期雇用の場合「子どもが1歳6か月になるまでに契約が満了することが明らかでないこと」が要件です。",
+          },
+          {
+            question: "育児休業給付金と出産手当金は同時にもらえますか？",
+            answer: "同時に受け取ることはできません。出産手当金は産休期間中、育児休業給付金は育休期間中に支給され、期間が重複しない設計です。",
+          },
+          {
+            question: "男性も育児休業給付金を受け取れますか？",
+            answer: "受け取れます。育児休業給付金は男女問わず、雇用保険の加入要件を満たしていれば支給対象です。産後パパ育休と合わせて最大4回に分割取得も可能です。",
           },
         ]}
       />
