@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
+import AffiliateSection from "../../../components/affiliates/affiliate-section";
+import { ZANGYODAI_AFFILIATES } from "../../../lib/affiliates";
 import Link from "next/link";
 import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
@@ -791,6 +793,8 @@ export default function MinashiZangyouPage() {
             </section>
           </div>
         </article>
+
+        <AffiliateSection heading="残業に悩んでいる方へ" items={ZANGYODAI_AFFILIATES} />
       </main>
       <Footer />
     </>

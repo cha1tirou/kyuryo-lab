@@ -3,6 +3,8 @@ import Header from "../../components/layout/header";
 import Footer from "../../components/layout/footer";
 import EigyobiCalculator from "../../components/calculators/eigyobi-calculator";
 import AdUnit from "../../components/ads/ad-unit";
+import AffiliateSection from "../../components/affiliates/affiliate-section";
+import { EIGYOBI_AFFILIATES } from "../../lib/affiliates";
 import Link from "next/link";
 import Breadcrumb from "../../components/ui/breadcrumb";
 import {

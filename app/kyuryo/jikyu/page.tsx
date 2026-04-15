@@ -3,6 +3,8 @@ import Header from "../../../components/layout/header";
 import Footer from "../../../components/layout/footer";
 import JikyuCalculator from "../../../components/calculators/jikyu-calculator";
 import AdUnit from "../../../components/ads/ad-unit";
+import AffiliateSection from "../../../components/affiliates/affiliate-section";
+import { JIKYU_AFFILIATES } from "../../../lib/affiliates";
 import Link from "next/link";
 import Breadcrumb from "../../../components/ui/breadcrumb";
 import {
