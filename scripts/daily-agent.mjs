@@ -485,86 +485,126 @@ async function main() {
     : null;
 
   const startTime = Date.now();
+  const executed = [];
 
   console.log(`\n${"=".repeat(56)}`);
   console.log(`🤖 kyuryo-lab Daily Agent | ${new Date().toISOString().split("T")[0]}`);
   console.log(`${"=".repeat(56)}`);
 
-  // 1. 状態収集
-  console.log("\n📊 サイト現状を収集中...");
+  // ─── Step 1: GSCデータ取得 ──────────────────────────────────
+  console.log("\n📡 Step 1: GSCデータ取得...");
   const state = await collectState();
   console.log(`  • guideページ数: ${state.guidePageCount}`);
   console.log(`  • 未処理キーワード: ${state.keywordsPending}件`);
-  console.log(`  • GSCデータ: ${state.hasGSC ? "✅ あり" : "❌ なし"}`);
+  console.log(`  • GSCデータ: ${state.hasGSC ? "✅ あり" : "❌ なし（モック）"}`);
+  if (state.hasGSC) {
+    console.log(`  • ページ数: ${state.pages.length}件 / クエリ数: ${state.queries.length}件`);
+  }
 
-  // 2. タスク提案
-  console.log("\n🤖 今日のタスクを生成中...");
+  // ─── Step 2: Claude分析 → タスク立案 ──────────────────────────
+  console.log("\n🧠 Step 2: Claude分析 → タスク立案...");
   const plan = await proposeTasksWithClaude(state);
 
   console.log(`\n📋 今日のタスク（${plan.tasks.length}件）`);
   console.log(`   ${plan.summary}`);
   plan.tasks.forEach(t => {
-    const autoLabel = t.auto ? "⚡ 自動" : "👤 手動";
+    const autoLabel = t.auto !== false ? "⚡ 自動" : "👤 手動";
     console.log(`\n  [T${t.id}] ${autoLabel} P${t.priority} | ${t.title}`);
     console.log(`        ${t.reason}`);
   });
 
   if (dryRun) {
-    console.log("\n🔍 --dry-run: タスク提案のみ（実行スキップ）");
+    console.log("\n🔍 --dry-run: 提案のみ（実行スキップ）");
     saveLog({ date: state.date, plan, executed: [], dryRun: true });
     return;
   }
 
-  // 3. タスク実行
+  // ─── Step 3: タスク実行 ────────────────────────────────────────
   console.log(`\n${"─".repeat(56)}`);
-  console.log("🔧 タスク実行:");
+  console.log("⚙️  Step 3: タスク実行:");
 
-  const executed = [];
   const targets = plan.tasks.filter(t => {
     if (taskFilter !== null) return t.id === taskFilter;
-    return t.auto !== false; // autoがfalseでなければ実行
+    return t.auto !== false;
   });
 
   for (const task of targets) {
     const result = await executeTask(task);
     executed.push({ task, result });
-    if (!result.success) {
-      console.log(`    ⚠ ${result.message}`);
+    if (!result.success) console.log(`    ⚠ ${result.message}`);
+  }
+
+  // ─── Step 4: 記事生成（毎日必ず1本）────────────────────────────
+  console.log(`\n${"─".repeat(56)}`);
+  console.log("📝 Step 4: 記事生成（毎日）:");
+
+  // キーワードがなければClaudeに追加させてから生成
+  let kws = fs.existsSync(KEYWORDS_FILE)
+    ? JSON.parse(fs.readFileSync(KEYWORDS_FILE, "utf8"))
+    : [];
+  let pending = kws.filter(k => !k.done);
+
+  if (pending.length === 0) {
+    console.log("  ⏳ 未処理キーワードなし → Claudeに新規キーワードを生成させます...");
+    // plan.newArticlesがあれば追加
+    const newArticles = plan.newArticles || [];
+    if (newArticles.length > 0) {
+      for (const a of newArticles.slice(0, 3)) {
+        if (!kws.find(k => k.slug === a.slug)) {
+          kws.push({
+            slug: a.slug, keyword: a.keyword,
+            title: a.title || a.keyword,
+            description: a.reason || "",
+            affiliate: a.affiliate || "bengoshi",
+            done: false, source: "daily_auto",
+          });
+        }
+      }
+      fs.writeFileSync(KEYWORDS_FILE, JSON.stringify(kws, null, 2));
+      pending = kws.filter(k => !k.done);
+      console.log(`  ✅ ${pending.length}件追加`);
     }
   }
 
-  // 4. git push（変更があれば）
-  const completedCount = executed.filter(e => e.result.success).length;
-  if (completedCount > 0) {
-    const successTitles = executed
-      .filter(e => e.result.success)
-      .map(e => e.task.title)
-      .join(", ");
-    commitAndPush(`daily-agent: ${state.date} - ${successTitles}`);
+  if (pending.length > 0) {
+    try {
+      execSync(`node ${path.join(ROOT, "scripts", "generate-article.mjs")}`, {
+        stdio: "inherit", env: process.env, cwd: ROOT,
+      });
+      executed.push({
+        task: { title: `記事生成: ${pending[0].keyword}`, type: "generate_article", auto: true },
+        result: { success: true },
+      });
+    } catch (e) {
+      console.error("  ❌ 記事生成エラー:", e.message.slice(0, 150));
+    }
+  } else {
+    console.log("  ⏭ キーワードが補充できなかったためスキップ");
   }
 
-  // 5. 結果サマリー
+  // ─── Step 5: git push ─────────────────────────────────────────
+  const completedCount = executed.filter(e => e.result.success).length;
+  if (completedCount > 0) {
+    const titles = executed.filter(e => e.result.success).map(e => e.task.title).join(", ");
+    commitAndPush(`daily-agent: ${state.date} - ${titles}`);
+  }
+
+  // ─── Step 6: サマリー & ログ ───────────────────────────────────
   const elapsed = Math.round((Date.now() - startTime) / 1000);
-  const summary = `\n✅ 完了: ${completedCount}/${targets.length}件 | ${elapsed}秒`;
-  console.log(`\n${"=".repeat(56)}${summary}\n${"=".repeat(56)}`);
+  console.log(`\n${"=".repeat(56)}`);
+  console.log(`✅ 完了: ${completedCount}件 | ${elapsed}秒`);
+  console.log(`${"=".repeat(56)}`);
 
-  // 6. ログ保存
-  const logData = { date: state.date, plan, executed, completedCount, elapsed };
-  saveLog(logData);
+  saveLog({ date: state.date, plan, executed, completedCount, elapsed });
 
-  // 7. LINE通知
-  const lineMsg = [
-    `\n【給料ラボ 日次レポート ${state.date}】`,
+  // ─── Step 7: LINE通知 ──────────────────────────────────────────
+  await notifyLINE([
+    `\n【給料ラボ ${state.date}】`,
     plan.summary,
-    `\n実行タスク: ${completedCount}/${targets.length}件完了`,
-    ...executed
-      .filter(e => e.result.success)
-      .map(e => `✅ ${e.task.title}`),
-    ...executed
-      .filter(e => !e.result.success)
-      .map(e => `⏭ ${e.task.title}（手動対応）`),
-  ].join("\n");
-  await notifyLINE(lineMsg);
+    `\n完了: ${completedCount}件 / ${elapsed}秒`,
+    ...executed.filter(e => e.result.success).map(e => `✅ ${e.task.title}`),
+    ...executed.filter(e => !e.result.success).map(e => `⏭ ${e.task.title}`),
+  ].join("\n"));
 }
 
 main().catch(e => {
