@@ -1,0 +1,62 @@
+{
+  "date": "2026-04-16",
+  "plan": {
+    "summary": "アビエス弁護士リンクの審査状況確認とアフィリエイトTODO解消が急務です。基盤が整った状態で新規キーワード追加と記事生成を進めます。",
+    "tasks": [
+      {
+        "id": 1,
+        "type": "report_only",
+        "title": "アビエス弁護士リンク審査状況確認",
+        "description": "審査中のアビエス弁護士リンクの承認状況を確認し、承認済みなら本番反映の準備を行う。",
+        "reason": "8件のアフィリエイトTODOの大部分がこのリンク関連の可能性が高く、収益化の基盤となる",
+        "priority": 5,
+        "auto": false,
+        "params": {}
+      },
+      {
+        "id": 2,
+        "type": "add_keyword",
+        "title": "退職代行関連の新規キーワード追加",
+        "description": "「退職代行 費用 相場」キーワードを追加し、コスト重視ユーザーの獲得を狙う。",
+        "reason": "未処理キーワードが0件なので新規追加が必要。費用関心層は転換率が高い",
+        "priority": 4,
+        "auto": true,
+        "params": {
+          "slug": "taishoku-daikou-hiyou-souba",
+          "keyword": "退職代行 費用 相場",
+          "title": "退職代行の費用相場を徹底比較！安くて信頼できるサービスの選び方",
+          "affiliate": "miyabi,abies",
+          "description": "退職代行サービスの料金体系と相場感を詳しく解説"
+        }
+      },
+      {
+        "id": 3,
+        "type": "generate_article",
+        "title": "追加したキーワードで記事生成",
+        "description": "追加した「退職代行 費用 相場」キーワードで記事を生成し、アフィリエイトリンクを適切に配置。",
+        "reason": "毎日の記事生成タスクとして必須。費用関心層への訴求コンテンツが不足",
+        "priority": 4,
+        "auto": true,
+        "params": {
+          "slug": "taishoku-daikou-hiyou-souba"
+        }
+      },
+      {
+        "id": 4,
+        "type": "create_guide_page",
+        "title": "退職手続きガイドページ作成",
+        "description": "退職時の必要書類・手続きをまとめた実用的なガイドページを作成し、サイト滞在時間向上を図る。",
+        "reason": "29ページのguideページを拡充し、ユーザビリティと検索流入の多様化を推進",
+        "priority": 3,
+        "auto": true,
+        "params": {
+          "slug": "taishoku-tetsuduki-guide",
+          "title": "退職手続き完全ガイド：必要書類から社会保険まで徹底解説",
+          "topic": "退職時の手続き・必要書類・社会保険・税金関係の実務的な解説"
+        }
+      }
+    ]
+  },
+  "executed": [],
+  "dryRun": true
+}
