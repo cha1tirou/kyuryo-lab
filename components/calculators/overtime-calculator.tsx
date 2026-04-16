@@ -6,6 +6,7 @@ import ResultCard from "../ui/result-card";
 import { calcOvertime } from "../../lib/calc/overtime";
 import { formatCurrency } from "../../lib/utils";
 import ShareButtons from "../ui/share-buttons";
+import Link from "next/link";
 
 export default function OvertimeCalculator() {
   const [monthlySalary, setMonthlySalary] = useState(250000);
@@ -112,6 +113,38 @@ export default function OvertimeCalculator() {
           text={`残業代は${formatCurrency(result.totalOvertimePay)}でした（給料ラボで計算）`}
           url="https://kyuryo-lab.com/"
         />
+
+        {/* 動的CTA：計算結果が0円超の場合のみ表示 */}
+        {result.totalOvertimePay > 0 && (
+          <div className="mt-6 rounded-2xl border-2 border-amber-300 bg-amber-50 p-5">
+            <p className="text-sm font-semibold text-amber-800 mb-1">
+              💡 この残業代、取り戻せるかもしれません
+            </p>
+            <p className="text-xs text-amber-700 mb-4 leading-relaxed">
+              未払いの残業代は<strong>3年以内</strong>なら請求できます。
+              弁護士への相談は無料・完全成功報酬型の事務所が増えています。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <a
+                href="https://www.abias-law.com/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="flex-1 block rounded-xl bg-amber-500 px-4 py-3 text-center text-sm font-bold text-white hover:bg-amber-600 transition-colors"
+              >
+                ⚖️ 弁護士に無料相談する
+              </a>
+              <a
+                href="https://ck.valuecommerce.ne.jp/servlet/referral?sid=2999025&pid=881512136"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="flex-1 block rounded-xl border border-slate-300 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                🚪 退職代行を見てみる
+              </a>
+            </div>
+            <p className="mt-2 text-center text-xs text-amber-600">PR・相談料0円・全国対応</p>
+          </div>
+        )}
       </div>
     </div>
   );

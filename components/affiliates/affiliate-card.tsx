@@ -1,3 +1,5 @@
+"use client";
+
 interface AffiliateCardProps {
   icon: string;
   label: string;
@@ -8,6 +10,20 @@ interface AffiliateCardProps {
   note?: string;
 }
 
+// GA4にアフィリエイトクリックを送信
+function trackAffiliateClick(href: string, title: string) {
+  if (typeof window === "undefined") return;
+  const w = window as typeof window & { gtag?: (...args: unknown[]) => void };
+  if (!w.gtag) return;
+  w.gtag("event", "affiliate_click", {
+    affiliate_name: title,
+    affiliate_url: href,
+    page_path: window.location.pathname,
+    event_category: "affiliate",
+    event_label: title,
+  });
+}
+
 export default function AffiliateCard({
   icon, label, title, description, ctaText, href, note,
 }: AffiliateCardProps) {
@@ -16,6 +32,7 @@ export default function AffiliateCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer nofollow sponsored"
+      onClick={() => trackAffiliateClick(href, title)}
       className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-colors hover:bg-slate-50"
     >
       <div className="flex items-center gap-2">
