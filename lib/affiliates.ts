@@ -58,11 +58,43 @@ export const AFFILIATE_LINKS = {
     ctaText: "無料トライアルを始める",
     note: "法人向け・1ヶ月無料",
   },
+  exitTaishoku: {
+    href: "https://www.exit.co.jp/",  // TODO: バリューコマーストラッキングURL（17,600円）
+    icon: "🚪",
+    label: "PR・退職代行",
+    title: "もう辞めたい…退職代行EXITで即日退職",
+    description: "会社に行かずに今日中に退職できます。弁護士監修・業界最安水準。ブラック企業・パワハラ・未払いにも対応。",
+    ctaText: "退職代行EXITを見てみる",
+    note: "全額返金保証あり・24時間対応",
+  },
+  jobsTaishoku: {
+    href: "https://jobs1.jp/",  // TODO: バリューコマーストラッキングURL（13,241円）
+    icon: "💨",
+    label: "PR・退職代行",
+    title: "退職代行Jobsで安心・確実に退職",
+    description: "弁護士監修で未払い残業代の請求もサポート。会社と直接話さずに退職可能。24時間365日受付。",
+    ctaText: "退職代行Jobsを見てみる",
+    note: "弁護士監修・費用27,000円",
+  },
+  abiaceKyuyo: {
+    href: "https://www.abias-law.com/",  // TODO: A8トラッキングURL（申請済み審査中・18,000円）
+    icon: "⚖️",
+    label: "PR・弁護士法人",
+    title: "未払い残業代を弁護士に無料相談｜アビエス法律事務所",
+    description: "未払いの残業代は3年分さかのぼって請求できます。弁護士直接対応・全国対応・相談無料。",
+    ctaText: "無料相談してみる",
+    note: "相談料0円・完全成功報酬",
+  },
 } as const;
 
 export const ZANGYODAI_AFFILIATES = [
-  AFFILIATE_LINKS.bennaviBengoshi,
+  AFFILIATE_LINKS.abiaceKyuyo,
   AFFILIATE_LINKS.doda,
+];
+
+export const TAISHOKU_AFFILIATES = [
+  AFFILIATE_LINKS.exitTaishoku,
+  AFFILIATE_LINKS.jobsTaishoku,
 ];
 
 export const TETSUKE_AFFILIATES = [

@@ -4,7 +4,7 @@ import Footer from "../components/layout/footer";
 import OvertimeCalculator from "../components/calculators/overtime-calculator";
 import AdUnit from "../components/ads/ad-unit";
 import AffiliateSection from "../components/affiliates/affiliate-section";
-import { ZANGYODAI_AFFILIATES } from "../lib/affiliates";
+import { ZANGYODAI_AFFILIATES, TAISHOKU_AFFILIATES } from "../lib/affiliates";
 import Link from "next/link";
 import Breadcrumb from "../components/ui/breadcrumb";
 import {
@@ -90,6 +90,18 @@ export default function Home() {
 
         {/* 広告: 計算ツール下 */}
         <AdUnit slot="1234567890" format="horizontal" />
+
+        {/* アフィリエイト: 未払い残業代 → 弁護士相談 */}
+        <AffiliateSection
+          heading="残業代が払われていないと感じたら"
+          items={ZANGYODAI_AFFILIATES}
+        />
+
+        {/* アフィリエイト: 残業過多 → 退職代行 */}
+        <AffiliateSection
+          heading="もう限界…会社を辞めたいと思ったら"
+          items={TAISHOKU_AFFILIATES}
+        />
 
         {/* 計算方法の解説 */}
         <section className="mb-12 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
