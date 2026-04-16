@@ -68,13 +68,13 @@ export const AFFILIATE_LINKS = {
     note: "全額返金保証あり・24時間対応",
   },
   jobsTaishoku: {
-    href: "https://jobs1.jp/",  // TODO: バリューコマーストラッキングURL（13,241円）
-    icon: "💨",
-    label: "PR・退職代行",
-    title: "退職代行Jobsで安心・確実に退職",
-    description: "弁護士監修で未払い残業代の請求もサポート。会社と直接話さずに退職可能。24時間365日受付。",
-    ctaText: "退職代行Jobsを見てみる",
-    note: "弁護士監修・費用27,000円",
+    href: "https://ck.valuecommerce.ne.jp/servlet/referral?sid=2999025&pid=881512136",  // バリューコマース：弁護士法人みやびの退職代行（16,500円）提携済み
+    icon: "⚖️",
+    label: "PR・弁護士による退職代行",
+    title: "弁護士法人みやびの退職代行で確実に退職",
+    description: "弁護士が直接対応。未払い残業代・慰謝料の請求も一緒に依頼できます。会社と直接話さずに退職可能。",
+    ctaText: "弁護士法人みやびを見てみる",
+    note: "弁護士法人運営・全国対応",
   },
   abiaceKyuyo: {
     href: "https://www.abias-law.com/",  // TODO: A8トラッキングURL（申請済み審査中・18,000円）
