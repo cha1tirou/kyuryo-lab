@@ -221,7 +221,11 @@ ${state.recentReports.map(r => `${r.date}: clicks=${r.clicks}, impressions=${r.i
 - アビエスのリンクがTODOならそれを修正（承認確認）するタスクを入れる
 - 未処理キーワードが多いなら記事生成を優先
 - GSCデータがあれば低CTR・高インプレッションのページ改善を優先
-- 毎日必ず1件は記事生成系タスクを含める
+- 記事生成は「必要なとき」だけ提案する。具体的には:
+  * 未処理キーワードが5件以上 → 1〜2本生成
+  * 未処理キーワードが1〜4件 → 状況次第（他のタスクが優先なら不要）
+  * 未処理キーワードが0件 → 新規キーワードを先に追加してから次回生成
+  * GSCで上位表示が始まっているページがあれば、記事より内部リンク強化を優先する
 
 必ずJSONのみを返してください:
 {
@@ -534,62 +538,14 @@ async function main() {
     if (!result.success) console.log(`    ⚠ ${result.message}`);
   }
 
-  // ─── Step 4: 記事生成（毎日必ず1本）────────────────────────────
-  console.log(`\n${"─".repeat(56)}`);
-  console.log("📝 Step 4: 記事生成（毎日）:");
-
-  // キーワードがなければClaudeに追加させてから生成
-  let kws = fs.existsSync(KEYWORDS_FILE)
-    ? JSON.parse(fs.readFileSync(KEYWORDS_FILE, "utf8"))
-    : [];
-  let pending = kws.filter(k => !k.done);
-
-  if (pending.length === 0) {
-    console.log("  ⏳ 未処理キーワードなし → Claudeに新規キーワードを生成させます...");
-    // plan.newArticlesがあれば追加
-    const newArticles = plan.newArticles || [];
-    if (newArticles.length > 0) {
-      for (const a of newArticles.slice(0, 3)) {
-        if (!kws.find(k => k.slug === a.slug)) {
-          kws.push({
-            slug: a.slug, keyword: a.keyword,
-            title: a.title || a.keyword,
-            description: a.reason || "",
-            affiliate: a.affiliate || "bengoshi",
-            done: false, source: "daily_auto",
-          });
-        }
-      }
-      fs.writeFileSync(KEYWORDS_FILE, JSON.stringify(kws, null, 2));
-      pending = kws.filter(k => !k.done);
-      console.log(`  ✅ ${pending.length}件追加`);
-    }
-  }
-
-  if (pending.length > 0) {
-    try {
-      execSync(`node ${path.join(ROOT, "scripts", "generate-article.mjs")}`, {
-        stdio: "inherit", env: process.env, cwd: ROOT,
-      });
-      executed.push({
-        task: { title: `記事生成: ${pending[0].keyword}`, type: "generate_article", auto: true },
-        result: { success: true },
-      });
-    } catch (e) {
-      console.error("  ❌ 記事生成エラー:", e.message.slice(0, 150));
-    }
-  } else {
-    console.log("  ⏭ キーワードが補充できなかったためスキップ");
-  }
-
-  // ─── Step 5: git push ─────────────────────────────────────────
+  // ─── Step 4: git push ─────────────────────────────────────────
   const completedCount = executed.filter(e => e.result.success).length;
   if (completedCount > 0) {
     const titles = executed.filter(e => e.result.success).map(e => e.task.title).join(", ");
     commitAndPush(`daily-agent: ${state.date} - ${titles}`);
   }
 
-  // ─── Step 6: サマリー & ログ ───────────────────────────────────
+  // ─── Step 5: サマリー & ログ ───────────────────────────────────
   const elapsed = Math.round((Date.now() - startTime) / 1000);
   console.log(`\n${"=".repeat(56)}`);
   console.log(`✅ 完了: ${completedCount}件 | ${elapsed}秒`);
@@ -597,7 +553,7 @@ async function main() {
 
   saveLog({ date: state.date, plan, executed, completedCount, elapsed });
 
-  // ─── Step 7: LINE通知 ──────────────────────────────────────────
+  // ─── Step 6: LINE通知 ──────────────────────────────────────────
   await notifyLINE([
     `\n【給料ラボ ${state.date}】`,
     plan.summary,
