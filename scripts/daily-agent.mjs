@@ -22,6 +22,21 @@ import path from "path";
 import { execSync } from "child_process";
 import { fileURLToPath } from "url";
 
+// .env.local を自動読み込み（node直接実行時にも動く）
+const __envPath = new URL("../.env.local", import.meta.url).pathname;
+if (fs.existsSync(__envPath)) {
+  const envContent = fs.readFileSync(__envPath, "utf8");
+  for (const line of envContent.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const eqIdx = trimmed.indexOf("=");
+    if (eqIdx < 0) continue;
+    const key = trimmed.slice(0, eqIdx).trim();
+    const val = trimmed.slice(eqIdx + 1).trim().replace(/^["']|["']$/g, "");
+    if (!process.env[key]) process.env[key] = val;
+  }
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const LOGS_DIR = path.join(ROOT, "scripts", "logs");
@@ -166,6 +181,9 @@ async function fetchGSCData(token, siteUrl) {
 // ============================================================
 async function proposeTasksWithClaude(state) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    throw new Error("ANTHROPIC_API_KEY が設定されていません。.env.local に追加してください。");
+  }
 
   const prompt = `あなたはkyuryo-lab（給料ラボ）のグロースエンジニアです。
 今日やるべき改善タスクを3〜5件提案・実行してください。
@@ -243,7 +261,14 @@ ${state.recentReports.map(r => `${r.date}: clicks=${r.clicks}, impressions=${r.i
     }),
   });
 
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error(`Claude API Error ${res.status}: ${errText.slice(0, 200)}`);
+  }
   const data = await res.json();
+  if (!data.content?.[0]?.text) {
+    throw new Error("APIレスポンス不正: " + JSON.stringify(data).slice(0, 300));
+  }
   const text = data.content[0].text;
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) throw new Error("JSONが見つかりません: " + text.slice(0, 300));

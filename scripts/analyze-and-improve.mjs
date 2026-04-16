@@ -28,6 +28,21 @@ import fs from "fs";
 import path from "path";
 import { execSync } from "child_process";
 import { fileURLToPath } from "url";
+// .env.local を自動読み込み
+const __envPath = new URL("../.env.local", import.meta.url).pathname;
+if (fs.existsSync(__envPath)) {
+  const envContent = fs.readFileSync(__envPath, "utf8");
+  for (const line of envContent.split("\n")) {
+    const t = line.trim();
+    if (!t || t.startsWith("#")) continue;
+    const eq = t.indexOf("=");
+    if (eq < 0) continue;
+    const k = t.slice(0, eq).trim();
+    const v = t.slice(eq + 1).trim().replace(/^["']|["']$/g, "");
+    if (!process.env[k]) process.env[k] = v;
+  }
+}
+
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
