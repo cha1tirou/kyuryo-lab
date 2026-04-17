@@ -40,5 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/guide/shakaihokenryou-setuyaku`, lastModified: '2026-04-05', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/guide/zangyodai-miharai-soudan`, lastModified: '2026-04-15', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/guide/taishoku-daiko-towa`, lastModified: '2026-04-15', changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/guide/taishoku-daikou-ryoukin-souba`, lastModified: '2026-04-17', changeFrequency: 'monthly', priority: 0.8 },
   ]
 }

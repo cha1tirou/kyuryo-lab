@@ -1,0 +1,16 @@
+================================================
+🤖 daily-agent start: Fri Apr 17 07:00:00 JST 2026
+================================================
+xargs: invalid option -- d
+usage: xargs [-0opt] [-E eofstr] [-I replstr [-R replacements] [-S replsize]]
+             [-J replstr] [-L number] [-n number [-x]] [-P maxprocs]
+             [-s size] [utility [argument ...]]
+declare -x HOME="/Users/unosoichiro"
+declare -x LOGNAME="unosoichiro"
+declare -x OLDPWD="/Users/unosoichiro/Downloads/kyuryo-lab"
+declare -x PATH="/usr/bin:/bin"
+declare -x PWD="/Users/unosoichiro/Downloads/kyuryo-lab"
+declare -x SHELL="/bin/sh"
+declare -x SHLVL="2"
+declare -x USER="unosoichiro"
+scripts/daily-agent.sh: line 19: node: command not found

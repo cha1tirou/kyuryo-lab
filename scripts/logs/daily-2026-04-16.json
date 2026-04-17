@@ -1,58 +1,61 @@
 {
   "date": "2026-04-16",
   "plan": {
-    "summary": "アビエス弁護士リンクの審査状況確認とアフィリエイトTODO解消が急務です。基盤が整った状態で新規キーワード追加と記事生成を進めます。",
+    "summary": "現在クリック数が0でも複数のページで上位表示が始まっており、特に時給計算ページは平均10.4位と好調です。未処理キーワードが2件あるため、記事生成とCTR改善を並行して進めます。",
     "tasks": [
       {
         "id": 1,
-        "type": "report_only",
-        "title": "アビエス弁護士リンク審査状況確認",
-        "description": "審査中のアビエス弁護士リンクの承認状況を確認し、承認済みなら本番反映の準備を行う。",
-        "reason": "8件のアフィリエイトTODOの大部分がこのリンク関連の可能性が高く、収益化の基盤となる",
-        "priority": 5,
-        "auto": false,
-        "params": {}
-      },
-      {
-        "id": 2,
-        "type": "add_keyword",
-        "title": "退職代行関連の新規キーワード追加",
-        "description": "「退職代行 費用 相場」キーワードを追加し、コスト重視ユーザーの獲得を狙う。",
-        "reason": "未処理キーワードが0件なので新規追加が必要。費用関心層は転換率が高い",
-        "priority": 4,
+        "type": "update_meta",
+        "title": "時給計算ページのタイトル・説明文最適化",
+        "description": "平均10.4位と上位表示されている時給計算ページのCTRを0%から改善するため、タイトルと説明文を最適化します。",
+        "reason": "GSCデータで最も上位表示されており、CTR改善でクリック獲得の可能性が高い",
+        "priority": 1,
         "auto": true,
         "params": {
-          "slug": "taishoku-daikou-hiyou-souba",
-          "keyword": "退職代行 費用 相場",
-          "title": "退職代行の費用相場を徹底比較！安くて信頼できるサービスの選び方",
-          "affiliate": "miyabi,abies",
-          "description": "退職代行サービスの料金体系と相場感を詳しく解説"
+          "filePath": "src/pages/kyuryo/jikyu.astro",
+          "newTitle": "【無料】時給計算ツール | 月給・年収から簡単計算 - 給料ラボ",
+          "newDescription": "月給や年収から時給を簡単に計算できる無料ツールです。労働時間を入力するだけで正確な時給がすぐに分かります。給与交渉や転職活動にも活用できます。"
         }
       },
       {
-        "id": 3,
+        "id": 2,
         "type": "generate_article",
-        "title": "追加したキーワードで記事生成",
-        "description": "追加した「退職代行 費用 相場」キーワードで記事を生成し、アフィリエイトリンクを適切に配置。",
-        "reason": "毎日の記事生成タスクとして必須。費用関心層への訴求コンテンツが不足",
-        "priority": 4,
+        "title": "未処理キーワードで記事生成",
+        "description": "keywords.jsonの未処理キーワード2件から1本記事を生成し、コンテンツを充実させます。",
+        "reason": "未処理キーワードがあり、残業代関連のクエリでインプレッションが発生しているため記事拡充が効果的",
+        "priority": 2,
         "auto": true,
+        "params": {}
+      },
+      {
+        "id": 3,
+        "type": "add_internal_link",
+        "title": "残業代関連ページ間の内部リンク強化",
+        "description": "残業60時間ルールページから時給計算ページへの内部リンクを追加し、ページ間の関連性を強化します。",
+        "reason": "残業代関連クエリで複数のインプレッションがあり、関連ページ間の導線強化でSEO効果向上が期待できる",
+        "priority": 3,
+        "auto": false,
         "params": {
-          "slug": "taishoku-daikou-hiyou-souba"
+          "from_page": "/guide/zangyou-60jikan-rule",
+          "to_page": "/kyuryo/jikyu",
+          "anchor_text": "時給計算ツール",
+          "context": "残業代を正確に把握するため"
         }
       },
       {
         "id": 4,
-        "type": "create_guide_page",
-        "title": "退職手続きガイドページ作成",
-        "description": "退職時の必要書類・手続きをまとめた実用的なガイドページを作成し、サイト滞在時間向上を図る。",
-        "reason": "29ページのguideページを拡充し、ユーザビリティと検索流入の多様化を推進",
-        "priority": 3,
+        "type": "add_keyword",
+        "title": "「残業代 未払い 計算」キーワード追加",
+        "description": "GSCで残業代計算関連のクエリが多いため、未払い残業代に特化したキーワードを追加します。",
+        "reason": "残業代関連クエリでインプレッションが複数発生しており、未払い計算は退職代行アフィリエイトとの親和性も高い",
+        "priority": 4,
         "auto": true,
         "params": {
-          "slug": "taishoku-tetsuduki-guide",
-          "title": "退職手続き完全ガイド：必要書類から社会保険まで徹底解説",
-          "topic": "退職時の手続き・必要書類・社会保険・税金関係の実務的な解説"
+          "slug": "zangyou-miharai-keisan",
+          "keyword": "残業代 未払い 計算",
+          "title": "未払い残業代の計算方法と請求手順",
+          "affiliate": "miyabi-taishoku",
+          "description": "未払い残業代の正確な計算方法と会社への請求手順を解説"
         }
       }
     ]
