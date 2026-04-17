@@ -617,21 +617,22 @@ async function main() {
     if (!result.success) console.log(`    ⚠ ${result.message}`);
   }
 
-  // ─── Step 4: git push ─────────────────────────────────────────
+  // ─── Step 4: ログ & PROGRESS.md更新 → git push ───────────────
   const completedCount = executed.filter(e => e.result.success).length;
-  if (completedCount > 0) {
-    const titles = executed.filter(e => e.result.success).map(e => e.task.title).join(", ");
+  const elapsed = Math.round((Date.now() - startTime) / 1000);
+
+  saveLog({ date: state.date, plan, executed, completedCount, elapsed });
+  updateProgressDoc({ date: state.date, plan, executed, completedCount, elapsed });  // pushより前
+
+  if (completedCount > 0 || true) {  // PROGRESS.mdは常にコミット
+    const titles = executed.filter(e => e.result.success).map(e => e.task.title).join(", ") || "ログ更新";
     commitAndPush(`daily-agent: ${state.date} - ${titles}`);
   }
 
-  // ─── Step 5: サマリー & ログ ───────────────────────────────────
-  const elapsed = Math.round((Date.now() - startTime) / 1000);
+  // ─── Step 5: サマリー ─────────────────────────────────────────
   console.log(`\n${"=".repeat(56)}`);
   console.log(`✅ 完了: ${completedCount}件 | ${elapsed}秒`);
   console.log(`${"=".repeat(56)}`);
-
-  saveLog({ date: state.date, plan, executed, completedCount, elapsed });
-  updateProgressDoc({ date: state.date, plan, executed, completedCount, elapsed });
 
   // ─── Step 6: LINE通知 ──────────────────────────────────────────
   await notifyLINE([
