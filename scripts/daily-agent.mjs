@@ -479,6 +479,84 @@ function saveLog(result) {
 }
 
 // ============================================================
+// 進捗ドキュメント更新 (PROGRESS.md)
+// ============================================================
+function updateProgressDoc(result) {
+  const docPath = path.join(ROOT, "PROGRESS.md");
+  const date = result.date;
+  const tasks = result.executed || [];
+  const plan = result.plan || {};
+
+  // GSC指標
+  const metrics = plan.metrics || {};
+  const metricsLine = metrics.totalClicks !== undefined
+    ? `| クリック | ${metrics.totalClicks} |
+| 表示回数 | ${metrics.totalImpressions} |
+| 平均CTR | ${((metrics.avgCTR || 0) * 100).toFixed(2)}% |
+| 平均順位 | ${(metrics.avgPosition || 0).toFixed(1)} |`
+    : `| GSCデータ | なし（モック） |`;
+
+  // タスク一覧
+  const taskRows = (plan.tasks || []).map(t => {
+    const executed = tasks.find(e => e.task?.id === t.id || e.task?.title === t.title);
+    const status = result.dryRun
+      ? "⏭ dry-run"
+      : executed
+        ? executed.result?.success ? "✅ 完了" : "❌ 失敗"
+        : t.auto === false ? "👤 手動対応" : "⏭ スキップ";
+    const autoLabel = t.auto !== false ? "自動" : "手動";
+    return `| ${t.id} | ${autoLabel} | P${t.priority} | ${t.title} | ${status} |`;
+  }).join("\n");
+
+  // 完了数サマリ
+  const done = tasks.filter(e => e.result?.success).length;
+  const total = (plan.tasks || []).length;
+
+  // 新エントリ
+  const entry = `
+## ${date}
+
+**サマリ:** ${plan.summary || "—"}
+**完了:** ${result.dryRun ? "dry-runのため実行なし" : `${done} / ${total} タスク | ${result.elapsed || 0}秒`}
+
+### GSC指標（直近28日）
+| 指標 | 値 |
+|---|---|
+${metricsLine}
+
+### タスク一覧
+| # | 種別 | 優先度 | タスク | 結果 |
+|---|---|---|---|---|
+${taskRows || "| — | — | — | タスクなし | — |"}
+
+---`;
+
+  // 既存ファイルの先頭（ヘッダーの後）に追記
+  let existing = "";
+  if (fs.existsSync(docPath)) {
+    existing = fs.readFileSync(docPath, "utf8");
+  } else {
+    existing = `# kyuryo-lab 実行ログ
+
+自動エージェントの実行記録。毎朝7時に自動更新。
+
+---`;
+  }
+
+  // 同じ日付のエントリがあれば置き換え、なければ先頭に追加
+  const datePattern = new RegExp(`## ${date}[\s\S]*?\n---`, "g");
+  if (existing.includes(`## ${date}`)) {
+    existing = existing.replace(datePattern, entry.trim() + "\n---");
+  } else {
+    // ヘッダー直後に挿入
+    existing = existing.replace("\n---", "\n---" + entry);
+  }
+
+  fs.writeFileSync(docPath, existing);
+  console.log(`  📋 PROGRESS.md 更新: ${date}`);
+}
+
+// ============================================================
 // メイン
 // ============================================================
 async function main() {
@@ -520,6 +598,7 @@ async function main() {
   if (dryRun) {
     console.log("\n🔍 --dry-run: 提案のみ（実行スキップ）");
     saveLog({ date: state.date, plan, executed: [], dryRun: true });
+    updateProgressDoc({ date: state.date, plan, executed: [], dryRun: true });
     return;
   }
 
@@ -552,6 +631,7 @@ async function main() {
   console.log(`${"=".repeat(56)}`);
 
   saveLog({ date: state.date, plan, executed, completedCount, elapsed });
+  updateProgressDoc({ date: state.date, plan, executed, completedCount, elapsed });
 
   // ─── Step 6: LINE通知 ──────────────────────────────────────────
   await notifyLINE([
