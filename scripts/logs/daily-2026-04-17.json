@@ -1,0 +1,67 @@
+{
+  "date": "2026-04-17",
+  "plan": {
+    "summary": "未処理キーワード1件で記事生成の緊急度は低く、GSCデータで時給計算ページが10.4位と上位表示されているため内部リンク強化を優先。アビエス弁護士リンクの審査確認とCTR改善も実施。",
+    "tasks": [
+      {
+        "id": 1,
+        "type": "add_internal_link",
+        "title": "時給計算ページへの内部リンク強化",
+        "description": "10.4位で上位表示されている時給計算ページに関連guideページから内部リンクを追加してランキング向上を狙う。",
+        "reason": "GSCデータで/kyuryo/jikyuが10.4位と上位表示されており、内部リンクでさらに順位向上が期待できる",
+        "priority": 5,
+        "auto": true,
+        "params": {
+          "target_page": "/kyuryo/jikyu",
+          "source_pages": [
+            "guide/zangyou-60jikan-rule",
+            "guide/zangyou-keisan"
+          ],
+          "anchor_text": "時給計算ツール"
+        }
+      },
+      {
+        "id": 2,
+        "type": "update_meta",
+        "title": "トップページのmeta改善でCTR向上",
+        "description": "21インプレッション・30.9位のトップページのtitle/descriptionを改善してCTRを高める。",
+        "reason": "トップページが最もインプレッションが多い（21回）がCTR0%なので改善余地が大きい",
+        "priority": 4,
+        "auto": true,
+        "params": {
+          "filePath": "src/pages/index.astro",
+          "newTitle": "給料・残業代計算ツール | 正確な給与計算ができる給料ラボ",
+          "newDescription": "給料・残業代・時給を正確に計算できる無料ツール。月給・日給から時給計算、60時間超残業代の計算方法まで完全対応。労働問題でお困りの方向けのガイドも充実。"
+        }
+      },
+      {
+        "id": 3,
+        "type": "report_only",
+        "title": "アビエス弁護士リンク審査状況確認",
+        "description": "審査中のアビエス弁護士リンクの承認状況を確認し、承認済みなら本番反映を準備。",
+        "reason": "アフィリエイトTODO8件のうち主要な案件なので早期対応が必要",
+        "priority": 3,
+        "auto": false,
+        "params": {}
+      },
+      {
+        "id": 4,
+        "type": "add_keyword",
+        "title": "残業代計算関連キーワード追加",
+        "description": "GSCで「残業代 計算 ツール」系キーワードが複数出現しているため、専用記事のキーワードを追加。",
+        "reason": "GSCデータで残業代計算ツール関連のクエリが多く検出されており、需要が確認できる",
+        "priority": 2,
+        "auto": true,
+        "params": {
+          "slug": "zangyoudai-keisan-tool-tsukaikata",
+          "keyword": "残業代 計算 ツール 使い方",
+          "title": "残業代計算ツールの正しい使い方｜月給・時給別の計算手順",
+          "affiliate": "miyabi",
+          "description": "残業代計算ツールの使い方を月給・時給・日給別に詳しく解説。正確な残業代を計算する手順と注意点を説明。"
+        }
+      }
+    ]
+  },
+  "executed": [],
+  "dryRun": true
+}
