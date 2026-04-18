@@ -236,6 +236,11 @@ function writeArticle(slug, content) {
   const dir = path.join(ROOT, "app", "guide", slug);
   fs.mkdirSync(dir, { recursive: true });
   const filePath = path.join(dir, "page.tsx");
+  // Claudeが返すコードブロックマーカー(```typescript, ```)を除去
+  const lines = content.split("\n");
+  if (lines[0].trim().startsWith("```")) lines.shift();
+  if (lines[lines.length - 1].trim() === "```") lines.pop();
+  content = lines.join("\n").trim();
   fs.writeFileSync(filePath, content, "utf8");
   console.log(`✅ 生成: ${filePath}`);
   return filePath;
