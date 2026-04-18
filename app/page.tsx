@@ -14,9 +14,8 @@ import {
 } from "../components/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "残業代計算 | 無料で即計算・スマホ対応 | 給料ラボ",
-  description:
-    "残業時間・深夜・休日出勤の残業代を無料で即計算。スマホで使いやすいシンプルなUIで、時間外・深夜・法定休日の割増賃金を正確に算出します。",
+  title: "残業代計算ツール - 未払い残業代を自動計算｜給料ラボ",
+  description: "残業代を正確に計算できる無料ツール。未払い残業代は過去2年分まで請求可能です。あなたの残業代、本当に正しく支払われていますか？今すぐチェックして適正な給与を確保しましょう。",
   keywords: "残業代計算,残業代,計算,割増賃金,時間外労働",
   alternates: { canonical: "/" },
   openGraph: {

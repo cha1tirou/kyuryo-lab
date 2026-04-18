@@ -1,61 +1,57 @@
 {
   "date": "2026-04-18",
   "plan": {
-    "summary": "GSCデータで残業代計算系クエリの検索順位は良好だがクリック率が0%で改善が必要。未処理キーワード1件と内部リンク強化が優先課題。",
+    "summary": "アビエス弁護士リンクの審査状況確認とCTA転換率向上が最優先。未処理キーワードが1件のみなので記事生成は控えめに、既存ツールの収益化に集中。",
     "tasks": [
       {
         "id": 1,
-        "type": "update_meta",
-        "title": "時給計算ツールページのメタ改善",
-        "description": "GSCで10位台の良順位だがCTR0%のjikyu計算ツールページのtitle/descriptionを最適化する。",
-        "reason": "位置10.44と上位表示されているがクリックされていない。メタ改善でCTR向上が期待できる最優先ページ",
+        "type": "report_only",
+        "title": "アビエス弁護士アフィリエイト承認状況の確認",
+        "description": "A8アビエス弁護士の審査状況を確認し、承認済みならリンク実装TODOを完了する。",
+        "reason": "18,000円/相談の高単価案件。審査中のまま放置すると機会損失が大きい",
         "priority": 1,
-        "auto": true,
-        "params": {
-          "filePath": "src/pages/kyuryo/jikyu.astro",
-          "newTitle": "時給計算ツール｜月給・年収から正確な時給を自動計算 - 給料ラボ",
-          "newDescription": "月給・年収から時給を自動計算できる無料ツール。残業代の基礎となる正確な時給がすぐにわかります。労働時間の入力だけで簡単計算。"
-        }
+        "auto": false,
+        "params": {}
       },
       {
         "id": 2,
-        "type": "add_internal_link",
-        "title": "残業60時間ガイドページに時給計算ツールリンク追加",
-        "description": "GSCで両方とも検索されている残業60時間ガイドページに、時給計算ツールへの内部リンクを設置する。",
-        "reason": "「残業60時間 残業代」と「時給計算」両方でインプレッションがあり、ユーザー導線として自然な流れ",
-        "priority": 2,
+        "type": "update_cta_copy",
+        "title": "残業代計算ツール結果画面のCTAコピー改善",
+        "description": "計算結果直後の弁護士・退職代行CTAで「残業代が払われていない」という問題認識を強化したコピーに変更。",
+        "reason": "最も転換率に直結する部分。トラフィックはあるがCTAクリック率が低い可能性が高い",
+        "priority": 1,
         "auto": true,
         "params": {
-          "source_page": "/guide/zangyou-60jikan-rule",
-          "target_page": "/kyuryo/jikyu",
-          "anchor_text": "時給計算ツール",
-          "context": "残業代を正確に計算するには、まず基本となる時給を把握することが重要です"
+          "description_of_change": "残業代計算結果画面で、計算結果が高額な場合に「この残業代、本当にもらえていますか？」「未払い残業代は2年分まで請求できます」といった問題認識を強化するコピーを追加し、弁護士相談CTAの訴求力を高める"
         }
       },
       {
         "id": 3,
-        "type": "generate_article",
-        "title": "未処理キーワードから記事生成",
-        "description": "keywords.jsonにある1件の未処理キーワードから記事を生成してコンテンツを拡充する。",
-        "reason": "残業代計算系で検索ボリュームが見込めるキーワードの可能性が高く、GSCデータと連携して集客強化",
-        "priority": 3,
+        "type": "add_internal_link",
+        "title": "時給・手取り計算ツールから残業代計算への導線強化",
+        "description": "時給計算・手取り計算の結果画面に「残業代も計算してみませんか？」の内部リンクを追加。",
+        "reason": "既存トラフィックをメインの収益化ページ（残業代計算）に集約し、CTAへの到達率を上げる",
+        "priority": 2,
         "auto": true,
-        "params": {}
+        "params": {
+          "fromPath": "app/kyuryo/jikyu/page.tsx",
+          "toPath": "app/page.tsx",
+          "linkText": "残業代も正しく計算されているかチェック",
+          "description": "時給計算結果の下部に、残業代計算ツールへの誘導リンクを設置"
+        }
       },
       {
         "id": 4,
-        "type": "add_keyword",
-        "title": "「残業代 計算 基本給」キーワード追加",
-        "description": "GSCで17位と上位表示されているクエリを新しいキーワードとして追加し、専用コンテンツ作成準備をする。",
-        "reason": "GSCで17位の良順位を取得済み。専用記事でさらなる順位向上とクリック獲得を狙える",
-        "priority": 4,
+        "type": "update_meta",
+        "title": "残業代計算ページのmeta description改善",
+        "description": "トップページのmeta descriptionに「未払い残業代」「2年分請求」などCVRを意識したキーワードを含める。",
+        "reason": "検索結果でのクリック率向上とCVR高いユーザーの集客。最も重要な収益化ページなので優先度高",
+        "priority": 2,
         "auto": true,
         "params": {
-          "slug": "zangyou-keisan-kihonkyu",
-          "keyword": "残業代 計算 基本給",
-          "title": "基本給から残業代を計算する方法｜正確な割増賃金の求め方を解説",
-          "affiliate": "miyabi",
-          "description": "基本給をベースにした残業代計算の詳しい解説記事"
+          "filePath": "app/page.tsx",
+          "newTitle": "残業代計算ツール - 未払い残業代を自動計算｜給料ラボ",
+          "newDescription": "残業代を正確に計算できる無料ツール。未払い残業代は過去2年分まで請求可能です。あなたの残業代、本当に正しく支払われていますか？今すぐチェックして適正な給与を確保しましょう。"
         }
       }
     ]
@@ -63,38 +59,36 @@
   "executed": [
     {
       "task": {
-        "id": 1,
-        "type": "update_meta",
-        "title": "時給計算ツールページのメタ改善",
-        "description": "GSCで10位台の良順位だがCTR0%のjikyu計算ツールページのtitle/descriptionを最適化する。",
-        "reason": "位置10.44と上位表示されているがクリックされていない。メタ改善でCTR向上が期待できる最優先ページ",
+        "id": 2,
+        "type": "update_cta_copy",
+        "title": "残業代計算ツール結果画面のCTAコピー改善",
+        "description": "計算結果直後の弁護士・退職代行CTAで「残業代が払われていない」という問題認識を強化したコピーに変更。",
+        "reason": "最も転換率に直結する部分。トラフィックはあるがCTAクリック率が低い可能性が高い",
         "priority": 1,
         "auto": true,
         "params": {
-          "filePath": "src/pages/kyuryo/jikyu.astro",
-          "newTitle": "時給計算ツール｜月給・年収から正確な時給を自動計算 - 給料ラボ",
-          "newDescription": "月給・年収から時給を自動計算できる無料ツール。残業代の基礎となる正確な時給がすぐにわかります。労働時間の入力だけで簡単計算。"
+          "description_of_change": "残業代計算結果画面で、計算結果が高額な場合に「この残業代、本当にもらえていますか？」「未払い残業代は2年分まで請求できます」といった問題認識を強化するコピーを追加し、弁護士相談CTAの訴求力を高める"
         }
       },
       "result": {
-        "success": false,
-        "message": "src/pages/kyuryo/jikyu.astro が見つかりません"
+        "success": true,
+        "message": "CTA改善完了"
       }
     },
     {
       "task": {
-        "id": 2,
+        "id": 3,
         "type": "add_internal_link",
-        "title": "残業60時間ガイドページに時給計算ツールリンク追加",
-        "description": "GSCで両方とも検索されている残業60時間ガイドページに、時給計算ツールへの内部リンクを設置する。",
-        "reason": "「残業60時間 残業代」と「時給計算」両方でインプレッションがあり、ユーザー導線として自然な流れ",
+        "title": "時給・手取り計算ツールから残業代計算への導線強化",
+        "description": "時給計算・手取り計算の結果画面に「残業代も計算してみませんか？」の内部リンクを追加。",
+        "reason": "既存トラフィックをメインの収益化ページ（残業代計算）に集約し、CTAへの到達率を上げる",
         "priority": 2,
         "auto": true,
         "params": {
-          "source_page": "/guide/zangyou-60jikan-rule",
-          "target_page": "/kyuryo/jikyu",
-          "anchor_text": "時給計算ツール",
-          "context": "残業代を正確に計算するには、まず基本となる時給を把握することが重要です"
+          "fromPath": "app/kyuryo/jikyu/page.tsx",
+          "toPath": "app/page.tsx",
+          "linkText": "残業代も正しく計算されているかチェック",
+          "description": "時給計算結果の下部に、残業代計算ツールへの誘導リンクを設置"
         }
       },
       "result": {
@@ -104,43 +98,25 @@
     },
     {
       "task": {
-        "id": 3,
-        "type": "generate_article",
-        "title": "未処理キーワードから記事生成",
-        "description": "keywords.jsonにある1件の未処理キーワードから記事を生成してコンテンツを拡充する。",
-        "reason": "残業代計算系で検索ボリュームが見込めるキーワードの可能性が高く、GSCデータと連携して集客強化",
-        "priority": 3,
-        "auto": true,
-        "params": {}
-      },
-      "result": {
-        "success": true,
-        "message": "記事生成・push完了"
-      }
-    },
-    {
-      "task": {
         "id": 4,
-        "type": "add_keyword",
-        "title": "「残業代 計算 基本給」キーワード追加",
-        "description": "GSCで17位と上位表示されているクエリを新しいキーワードとして追加し、専用コンテンツ作成準備をする。",
-        "reason": "GSCで17位の良順位を取得済み。専用記事でさらなる順位向上とクリック獲得を狙える",
-        "priority": 4,
+        "type": "update_meta",
+        "title": "残業代計算ページのmeta description改善",
+        "description": "トップページのmeta descriptionに「未払い残業代」「2年分請求」などCVRを意識したキーワードを含める。",
+        "reason": "検索結果でのクリック率向上とCVR高いユーザーの集客。最も重要な収益化ページなので優先度高",
+        "priority": 2,
         "auto": true,
         "params": {
-          "slug": "zangyou-keisan-kihonkyu",
-          "keyword": "残業代 計算 基本給",
-          "title": "基本給から残業代を計算する方法｜正確な割増賃金の求め方を解説",
-          "affiliate": "miyabi",
-          "description": "基本給をベースにした残業代計算の詳しい解説記事"
+          "filePath": "app/page.tsx",
+          "newTitle": "残業代計算ツール - 未払い残業代を自動計算｜給料ラボ",
+          "newDescription": "残業代を正確に計算できる無料ツール。未払い残業代は過去2年分まで請求可能です。あなたの残業代、本当に正しく支払われていますか？今すぐチェックして適正な給与を確保しましょう。"
         }
       },
       "result": {
         "success": true,
-        "message": "残業代 計算 基本給 を追加"
+        "message": "metadata更新: app/page.tsx"
       }
     }
   ],
   "completedCount": 2,
-  "elapsed": 114
+  "elapsed": 42
 }

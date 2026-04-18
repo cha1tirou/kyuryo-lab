@@ -8,10 +8,19 @@ export const AFFILIATE_LINKS = {
     href: "https://bexy.jp/",  // TODO: A8トラッキングURLに差し替え
     icon: "⚖️",
     label: "PR・無料相談あり",
-    title: "残業代が払われていないかも？弁護士に無料相談",
-    description: "未払いの残業代は3年間さかのぼって請求できます。専門の弁護士への相談は無料です。",
-    ctaText: "無料で相談してみる",
+    title: "この残業代、本当にもらえていますか？弁護士に無料相談",
+    description: "計算結果が高額なのに未払いではありませんか？未払い残業代は3年分まで請求できます。専門の弁護士への相談は無料です。",
+    ctaText: "今すぐ無料相談してみる",
     note: "相談料0円・全国対応",
+  },
+  bennaviBengoshiHigh: {
+    href: "https://bexy.jp/",  // TODO: A8トラッキングURLに差し替え
+    icon: "⚖️",
+    label: "PR・無料相談あり",
+    title: "月10万円以上の未払い残業代？今すぐ弁護士に相談",
+    description: "この金額が未払いなら大きな損失です。未払い残業代は2年分まで請求可能。今なら3年分まで遡って回収できます。",
+    ctaText: "高額未払い残業代を相談する",
+    note: "相談料0円・完全成功報酬",
   },
   doda: {
     href: "https://doda.jp/",  // TODO: A8トラッキングURLに差し替え
@@ -85,11 +94,25 @@ export const AFFILIATE_LINKS = {
     ctaText: "無料相談してみる",
     note: "相談料0円・完全成功報酬",
   },
+  abiaceKyuyoHigh: {
+    href: "https://www.abias-law.com/",  // TODO: A8トラッキングURL（申請済み審査中・18,000円）
+    icon: "⚖️",
+    label: "PR・弁護士法人",
+    title: "その残業代、もらい損ねていませんか？",
+    description: "計算結果が高額なら要注意。未払い残業代は2年分まで請求できます。弁護士への相談は完全無料です。",
+    ctaText: "未払い残業代を相談する",
+    note: "相談料0円・完全成功報酬・2年分請求可能",
+  },
 } as const;
 
 export const ZANGYODAI_AFFILIATES = [
   AFFILIATE_LINKS.abiaceKyuyo,
   AFFILIATE_LINKS.doda,
+];
+
+export const ZANGYODAI_HIGH_AFFILIATES = [
+  AFFILIATE_LINKS.abiaceKyuyoHigh,
+  AFFILIATE_LINKS.bennaviBengoshiHigh,
 ];
 
 export const TAISHOKU_AFFILIATES = [
