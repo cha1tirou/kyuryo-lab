@@ -14,6 +14,15 @@
     "title": "給与計算の残業代算出方法を完全解説！法定労働時間と割増率",
     "description": "給与計算における残業代の正しい計算方法と法定労働時間について詳しく解説",
     "affiliate": "みやび退職代行",
+    "done": true,
+    "source": "daily_agent"
+  },
+  {
+    "slug": "zangyou-keisan-kihonkyu",
+    "keyword": "残業代 計算 基本給",
+    "title": "基本給から残業代を計算する方法｜正確な割増賃金の求め方を解説",
+    "description": "基本給をベースにした残業代計算の詳しい解説記事",
+    "affiliate": "miyabi",
     "done": false,
     "source": "daily_agent"
   }
