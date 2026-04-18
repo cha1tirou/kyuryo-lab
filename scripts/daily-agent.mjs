@@ -500,14 +500,22 @@ function updateProgressDoc(result) {
   const tasks = result.executed || [];
   const plan = result.plan || {};
 
-  // GSC指標
-  const metrics = plan.metrics || {};
-  const metricsLine = metrics.totalClicks !== undefined
-    ? `| クリック | ${metrics.totalClicks} |
-| 表示回数 | ${metrics.totalImpressions} |
-| 平均CTR | ${((metrics.avgCTR || 0) * 100).toFixed(2)}% |
-| 平均順位 | ${(metrics.avgPosition || 0).toFixed(1)} |`
-    : `| GSCデータ | なし（モック） |`;
+  // GSC指標（stateから直接取る）
+  const gsc = result.gscState || {};
+  const gscPages = gsc.pages || [];
+  const gscQueries = gsc.queries || [];
+  const hasGSC = gsc.hasGSC || false;
+  let metricsLine;
+  if (hasGSC && gscPages.length > 0) {
+    const totalClicks = gscPages.reduce((s, p) => s + (p.clicks || 0), 0);
+    const totalImpressions = gscPages.reduce((s, p) => s + (p.impressions || 0), 0);
+    const avgCTR = totalImpressions > 0 ? totalClicks / totalImpressions : 0;
+    const positions = gscPages.filter(p => p.position > 0).map(p => p.position);
+    const avgPos = positions.length > 0 ? positions.reduce((a, b) => a + b, 0) / positions.length : 0;
+    metricsLine = `| クリック | ${totalClicks} |\n| 表示回数 | ${totalImpressions} |\n| 平均CTR | ${(avgCTR * 100).toFixed(2)}% |\n| 平均順位 | ${avgPos.toFixed(1)} |\n| 検出ページ | ${gscPages.length}件 |\n| 検出クエリ | ${gscQueries.length}件 |`;
+  } else {
+    metricsLine = `| GSCデータ | APIキー未設定 |`;
+  }
 
   // タスク一覧
   const taskRows = (plan.tasks || []).map(t => {
@@ -611,7 +619,7 @@ async function main() {
   if (dryRun) {
     console.log("\n🔍 --dry-run: 提案のみ（実行スキップ）");
     saveLog({ date: state.date, plan, executed: [], dryRun: true });
-    updateProgressDoc({ date: state.date, plan, executed: [], dryRun: true });
+    updateProgressDoc({ date: state.date, plan, executed: [], dryRun: true, gscState: { hasGSC: state.hasGSC, pages: state.pages, queries: state.queries } });
     return;
   }
 
@@ -635,7 +643,7 @@ async function main() {
   const elapsed = Math.round((Date.now() - startTime) / 1000);
 
   saveLog({ date: state.date, plan, executed, completedCount, elapsed });
-  updateProgressDoc({ date: state.date, plan, executed, completedCount, elapsed });  // pushより前
+  updateProgressDoc({ date: state.date, plan, executed, completedCount, elapsed, gscState: { hasGSC: state.hasGSC, pages: state.pages, queries: state.queries } });  // pushより前
 
   if (completedCount > 0 || true) {  // PROGRESS.mdは常にコミット
     const titles = executed.filter(e => e.result.success).map(e => e.task.title).join(", ") || "ログ更新";
