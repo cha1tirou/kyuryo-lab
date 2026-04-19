@@ -188,9 +188,52 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQPageJsonLd } from "../../../compone
 - affiliate=taishoku → TAISHOKU_AFFILIATES を使う
 - affiliate=both → 両方を別のAffiliateSectionで使う
 
+## コンポーネントprops仕様（必ず守ること）
+
+### ArticleJsonLd
+```
+<ArticleJsonLd
+  headline="記事タイトル"        // ← title= ではなく headline=
+  description="説明文"
+  url="https://kyuryo-lab.com/guide/slug/"
+  datePublished="2024-01-15"   // ← publishedTime= ではなく datePublished=
+  dateModified="2024-01-15"    // ← modifiedTime= ではなく dateModified=
+  // authorName は使わない
+/>
+```
+
+### BreadcrumbJsonLd
+```
+<BreadcrumbJsonLd
+  items={[
+    { name: "ホーム", url: "https://kyuryo-lab.com/" },  // ← url= を使う
+    { name: "ガイド", url: "https://kyuryo-lab.com/guide/" },
+    { name: "ページタイトル", url: "https://kyuryo-lab.com/guide/slug/" },
+  ]}
+/>
+```
+
+### FAQPageJsonLd
+```
+<FAQPageJsonLd
+  items={faqData}  // ← items= を使う（faqs= ではない）
+/>
+```
+
+### Breadcrumb（UIコンポーネント）
+```
+<Breadcrumb
+  items={[
+    { name: "ホーム", href: "/" },      // ← href= を使う（url= ではない）
+    { name: "ガイド", href: "/guide/" },
+    { name: "ページタイトル", href: "/guide/slug/" },
+  ]}
+/>
+```
+
 ## 注意
 - TypeScriptエラーが出ないよう正確に書く
-- breadcrumbItemsは必ず { name: string, url: string } の形式にする（hrefは使わない）
+- 上記のprops仕様を必ず守る（間違えるとビルドエラーになる）
 - 文字列内のシングルクォートはエスケープ（\\'）する
 - JSX内ではHTMLエンティティ（&amp; &lt; &gt;）を使う
 - コードブロック（\`\`\`）は使わない、純粋なTypeScriptコードのみを返す
@@ -275,6 +318,24 @@ function updateSitemap(slug) {
 // TypeScriptチェック
 // ============================================================
 function typeCheck(filePath) {
+  // 生成ファイルの簡易構文チェック（tscがなくても最低限の検証）
+  const fileContent = fs.readFileSync(filePath, "utf8");
+  const checks = [
+    { test: !fileContent.trim().startsWith("```"), msg: "コードブロックマーカーが残っている" },
+    { test: fileContent.includes("export default function"), msg: "デフォルトエクスポートがない" },
+    { test: !fileContent.includes("publishedTime="), msg: "publishedTime= が使われている（→datePublished=）" },
+    { test: !fileContent.includes("modifiedTime="), msg: "modifiedTime= が使われている（→dateModified=）" },
+    { test: !fileContent.includes("faqs={"), msg: "faqs={ が使われている（→items={）" },
+    { test: !fileContent.includes("<ArticleJsonLd") || fileContent.includes("headline="), msg: "ArticleJsonLdにheadline=がない（title=を使っている）" },
+  ];
+  for (const { test, msg } of checks) {
+    if (!test) {
+      console.error(`❌ 簡易チェック失敗: ${msg}`);
+      return false;
+    }
+  }
+  console.log("✅ 簡易チェック: OK");
+
   // node_modules/.bin/tscを優先、なければスキップ（Vercelでビルド時に検出）
   const tscBin = path.join(ROOT, "node_modules", ".bin", "tsc");
   if (!fs.existsSync(tscBin)) {
@@ -304,9 +365,16 @@ function typeCheck(filePath) {
 // ============================================================
 function gitPush(slug) {
   try {
-    execSync(`cd ${ROOT} && git add -A`, { stdio: "inherit" });
-    execSync(`cd ${ROOT} && git commit -m "content: auto-generate guide/${slug}"`, { stdio: "inherit" });
-    execSync(`cd ${ROOT} && git push origin main`, { stdio: "inherit" });
+    const gitEnv = {
+      ...process.env,
+      HOME: process.env.HOME || "/Users/unosoichiro",
+      GIT_CONFIG_GLOBAL: process.env.GIT_CONFIG_GLOBAL || "/Users/unosoichiro/.gitconfig",
+      PATH: process.env.PATH || "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin",
+    };
+    execSync(`cd ${ROOT} && git add -A`, { stdio: "inherit", env: gitEnv });
+    execSync(`cd ${ROOT} && git config user.email "cha1tirou@github.com" && git config user.name "cha1tirou"`, { stdio: "pipe", env: gitEnv });
+    execSync(`cd ${ROOT} && git commit -m "content: auto-generate guide/${slug}"`, { stdio: "inherit", env: gitEnv });
+    execSync(`cd ${ROOT} && git push origin main`, { stdio: "inherit", env: gitEnv });
     console.log("🚀 git push完了!");
   } catch (e) {
     console.error("git push失敗:", e.message);

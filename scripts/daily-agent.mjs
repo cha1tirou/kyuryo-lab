@@ -474,9 +474,19 @@ function commitAndPush(message) {
       console.log("\n  ⏭ 変更なし、git pushはスキップ");
       return false;
     }
-    execSync(`cd ${ROOT} && git add -A`, { stdio: "pipe" });
-    execSync(`cd ${ROOT} && git commit -m "${message}"`, { stdio: "pipe" });
-    execSync(`cd ${ROOT} && git push origin main`, { stdio: "inherit" });
+
+    // git操作に必要な環境変数を明示的に設定（cron環境で動くよう）
+    const gitEnv = {
+      ...process.env,
+      HOME: process.env.HOME || "/Users/unosoichiro",
+      GIT_CONFIG_GLOBAL: process.env.GIT_CONFIG_GLOBAL || "/Users/unosoichiro/.gitconfig",
+      PATH: process.env.PATH || "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin",
+    };
+
+    execSync(`cd ${ROOT} && git add -A`, { stdio: "pipe", env: gitEnv });
+    execSync(`cd ${ROOT} && git config user.email "cha1tirou@github.com" && git config user.name "cha1tirou"`, { stdio: "pipe", env: gitEnv });
+    execSync(`cd ${ROOT} && git commit -m "${message}"`, { stdio: "pipe", env: gitEnv });
+    execSync(`cd ${ROOT} && git push origin main`, { stdio: "inherit", env: gitEnv });
     console.log("  🚀 デプロイ完了!");
     return true;
   } catch (e) {
