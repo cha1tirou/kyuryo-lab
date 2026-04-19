@@ -55,12 +55,11 @@ export default function Page() {
     <>
       <BreadcrumbJsonLd items={breadcrumbJsonItems} />
       <ArticleJsonLd
-        title="給与計算の残業代算出方法を完全解説！法定労働時間と割増率"
+        headline="給与計算の残業代算出方法を完全解説！法定労働時間と割増率"
         description="給与計算における残業代の正しい計算方法と法定労働時間について詳しく解説"
         url="https://kyuryo-lab.com/guide/kyuuyo-keisan-zangyou-houhou/"
-        publishedTime="2024-01-15"
-        modifiedTime="2024-01-15"
-        authorName="給料ラボ編集部"
+        datePublished="2024-01-15"
+        dateModified="2024-01-15"
       />
       <FAQPageJsonLd faqs={faqData} />
       
