@@ -67,9 +67,9 @@ export default function TaishokuDaikoTowaPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", url: "/" },
-          { name: "給与ガイド", url: "/guide" },
-          { name: "退職代行サービスとは", url: "/guide/taishoku-daiko-towa" },
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+          { name: "退職代行サービスとは", href: "/guide/taishoku-daiko-towa" },
         ]} />
         <article>
           <header className="mb-8">

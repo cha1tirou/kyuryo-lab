@@ -64,9 +64,9 @@ export default function MinashiZangyouPage() {
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb
           items={[
-            { name: "ホーム", url: "/" },
-            { name: "給与ガイド", url: "/guide" },
-            { name: "みなし残業の仕組み", url: "/guide/minashi-zangyou" },
+            { name: "ホーム", href: "/" },
+            { name: "給与ガイド", href: "/guide" },
+            { name: "みなし残業の仕組み", href: "/guide/minashi-zangyou" },
           ]}
         />
         <article>

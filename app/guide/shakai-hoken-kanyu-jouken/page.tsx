@@ -48,8 +48,8 @@ export default function ShakaiHokenKanyuJoukenPage() {
           <header className="mb-8">
             <Breadcrumb
               items={[
-                { name: "ホーム", url: "/" },
-                { name: "給与ガイド", url: "/guide" },
+                { name: "ホーム", href: "/" },
+                { name: "給与ガイド", href: "/guide" },
                 {
                   name: "社会保険の加入条件",
                   href: "/guide/shakai-hoken-kanyu-jouken",

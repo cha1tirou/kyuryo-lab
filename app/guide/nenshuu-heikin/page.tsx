@@ -45,8 +45,8 @@ export default function NenshuuHeikinPage() {
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb
           items={[
-            { name: "ホーム", url: "/" },
-            { name: "給与ガイド", url: "/guide" },
+            { name: "ホーム", href: "/" },
+            { name: "給与ガイド", href: "/guide" },
             {
               name: "年齢別・業種別の平均年収",
               href: "/guide/nenshuu-heikin",

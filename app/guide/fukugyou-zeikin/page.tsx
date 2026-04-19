@@ -40,9 +40,9 @@ export default function FukugyouZeikinPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", url: "/" },
-          { name: "給与ガイド", url: "/guide" },
-          { name: "副業の税金と確定申告", url: "/guide/fukugyou-zeikin" },
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+          { name: "副業の税金と確定申告", href: "/guide/fukugyou-zeikin" },
         ]} />
         <article>
           <header className="mb-8">

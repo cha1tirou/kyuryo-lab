@@ -47,9 +47,9 @@ export default function Man103KabePage() {
           <header className="mb-8">
             <Breadcrumb
               items={[
-                { name: "ホーム", url: "/" },
-                { name: "給与ガイド", url: "/guide" },
-                { name: "103万円の壁とは？", url: "/guide/103man-kabe" },
+                { name: "ホーム", href: "/" },
+                { name: "給与ガイド", href: "/guide" },
+                { name: "103万円の壁とは？", href: "/guide/103man-kabe" },
               ]}
             />
             <p className="text-sm text-blue-600 mb-2">

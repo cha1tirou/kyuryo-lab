@@ -40,9 +40,9 @@ export default function ShotokuzeiPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", url: "/" },
-          { name: "給与ガイド", url: "/guide" },
-          { name: "所得税の計算方法", url: "/guide/shotokuzei-keisan" },
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+          { name: "所得税の計算方法", href: "/guide/shotokuzei-keisan" },
         ]} />
         <article>
           <header className="mb-8">

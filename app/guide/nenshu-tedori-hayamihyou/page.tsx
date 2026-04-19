@@ -42,9 +42,9 @@ export default function NenshuHayamiPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", url: "/" },
-          { name: "給与ガイド", url: "/guide" },
-          { name: "年収別の手取り早見表", url: "/guide/nenshu-tedori-hayamihyou" },
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+          { name: "年収別の手取り早見表", href: "/guide/nenshu-tedori-hayamihyou" },
         ]} />
         <article>
           <header className="mb-8">

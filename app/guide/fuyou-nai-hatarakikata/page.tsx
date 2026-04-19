@@ -48,8 +48,8 @@ export default function FuyouNaiHatarakikataPage() {
           <header className="mb-8">
             <Breadcrumb
               items={[
-                { name: "ホーム", url: "/" },
-                { name: "給与ガイド", url: "/guide" },
+                { name: "ホーム", href: "/" },
+                { name: "給与ガイド", href: "/guide" },
                 {
                   name: "扶養内で働く方法と申請手続き",
                   href: "/guide/fuyou-nai-hatarakikata",

@@ -19,6 +19,11 @@ export default function TaishokuDaikouRyoukinSoubaPage() {
     { label: "ホーム", href: "/" },
     { label: "ガイド", href: "/guide" },
     { label: "退職代行の料金相場", href: "/guide/taishoku-daikou-ryoukin-souba" }
+  ]
+  const breadcrumbJsonItems = [
+    { label: "ホーム", url: "/" },
+    { label: "ガイド", url: "/guide" },
+    { label: "退職代行の料金相場", url: "/guide/taishoku-daikou-ryoukin-souba" }
   ];
 
   const faqData = [
@@ -46,7 +51,7 @@ export default function TaishokuDaikouRyoukinSoubaPage() {
 
   return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} />
+      <BreadcrumbJsonLd items={breadcrumbJsonItems} />
       <ArticleJsonLd
         title="退職代行の料金相場を徹底比較！サービス別の費用と選び方"
         description="退職代行サービスの料金相場について、弁護士・労働組合・民間企業別に詳しく解説します。"

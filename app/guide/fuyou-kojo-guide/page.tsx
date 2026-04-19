@@ -40,9 +40,9 @@ export default function FuyouKojoPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", url: "/" },
-          { name: "給与ガイド", url: "/guide" },
-          { name: "扶養控除と103万円の壁", url: "/guide/fuyou-kojo-guide" },
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+          { name: "扶養控除と103万円の壁", href: "/guide/fuyou-kojo-guide" },
         ]} />
         <article>
           <header className="mb-8">

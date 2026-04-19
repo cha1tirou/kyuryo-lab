@@ -18,6 +18,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   const breadcrumbItems = [
+    { name: "ホーム", href: "/" },
+    { name: "ガイド", href: "/guide/" },
+    { name: "給与計算の残業代算出方法", href: "/guide/kyuuyo-keisan-zangyou-houhou/" }
+  ]
+  const breadcrumbJsonItems = [
     { name: "ホーム", url: "/" },
     { name: "ガイド", url: "/guide/" },
     { name: "給与計算の残業代算出方法", url: "/guide/kyuuyo-keisan-zangyou-houhou/" }
@@ -48,7 +53,7 @@ export default function Page() {
 
   return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} />
+      <BreadcrumbJsonLd items={breadcrumbJsonItems} />
       <ArticleJsonLd
         title="給与計算の残業代算出方法を完全解説！法定労働時間と割増率"
         description="給与計算における残業代の正しい計算方法と法定労働時間について詳しく解説"

@@ -67,9 +67,9 @@ export default function ZangyodaiMiharaiSoudanPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", url: "/" },
-          { name: "給与ガイド", url: "/guide" },
-          { name: "残業代未払いの相談方法", url: "/guide/zangyodai-miharai-soudan" },
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+          { name: "残業代未払いの相談方法", href: "/guide/zangyodai-miharai-soudan" },
         ]} />
         <article>
           <header className="mb-8">

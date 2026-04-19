@@ -66,8 +66,8 @@ export default function SankyuuIkukyuuKyuufuPage() {
           <header className="mb-8">
             <Breadcrumb
               items={[
-                { name: "ホーム", url: "/" },
-                { name: "給与ガイド", url: "/guide" },
+                { name: "ホーム", href: "/" },
+                { name: "給与ガイド", href: "/guide" },
                 {
                   name: "産休・育休の手当と給付金",
                   href: "/guide/sankyuu-ikukyuu-kyuufu",

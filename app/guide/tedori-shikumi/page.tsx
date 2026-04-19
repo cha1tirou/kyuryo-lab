@@ -42,9 +42,9 @@ export default function TedoriShikumiPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", url: "/" },
-          { name: "給与ガイド", url: "/guide" },
-          { name: "手取り額の仕組み", url: "/guide/tedori-shikumi" },
+          { name: "ホーム", href: "/" },
+          { name: "給与ガイド", href: "/guide" },
+          { name: "手取り額の仕組み", href: "/guide/tedori-shikumi" },
         ]} />
         <article>
           <header className="mb-8">
