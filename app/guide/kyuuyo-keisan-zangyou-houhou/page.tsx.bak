@@ -11,14 +11,14 @@ import {
 } from "../../../components/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "給与計算の残業代算出方法を完全解説 | 割増率・計算例つき | 給料ラボ",
+  title: "残業代の計算方法を徹底解説 | 割増率・計算例つき | 給料ラボ",
   description:
-    "給与計算における残業代の計算方法を、基礎時給の求め方から割増率の種類、具体的な計算例まで徹底解説。月60時間超の50%割増にも対応。",
+    "残業代の正しい計算方法を、基礎時給の求め方から割増率の種類、具体的な計算例まで徹底解説。月60時間超の50%割増にも対応。",
   keywords: "残業代,計算方法,割増率,基礎時給,時間外労働,深夜残業",
-  alternates: { canonical: "/guide/kyuuyo-keisan-zangyou-houhou" },
+  alternates: { canonical: "/guide/zangyoudai-keisan-houhou" },
   openGraph: {
-    title: "給与計算の残業代算出方法を完全解説 | 割増率・計算例つき",
-    description: "給与計算における残業代の計算方法を基礎時給から割増率まで徹底解説。",
+    title: "残業代の計算方法を徹底解説 | 割増率・計算例つき",
+    description: "残業代の正しい計算方法を基礎時給から割増率まで徹底解説。",
     type: "article",
   },
 };
@@ -28,23 +28,23 @@ export default function ZangyoudaiKeisanPage() {
     <>
       <Header />
       <ArticleJsonLd
-        headline="給与計算の残業代算出方法を完全解説 | 割増率・計算例つき"
-        description="給与計算における残業代の計算方法を、基礎時給の求め方から割増率の種類、具体的な計算例まで徹底解説。"
-        url="https://kyuryo-lab.com/guide/kyuuyo-keisan-zangyou-houhou"
+        headline="残業代の計算方法を徹底解説 | 割増率・計算例つき"
+        description="残業代の正しい計算方法を、基礎時給の求め方から割増率の種類、具体的な計算例まで徹底解説。"
+        url="https://kyuryo-lab.com/guide/zangyoudai-keisan-houhou"
         datePublished="2025-01-15"
       />
       <BreadcrumbJsonLd
         items={[
           { name: "ホーム", url: "https://kyuryo-lab.com/" },
           { name: "給与ガイド", url: "https://kyuryo-lab.com/guide" },
-          { name: "残業代の計算方法", url: "https://kyuryo-lab.com/guide/kyuuyo-keisan-zangyou-houhou" },
+          { name: "残業代の計算方法", url: "https://kyuryo-lab.com/guide/zangyoudai-keisan-houhou" },
         ]}
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
           { name: "ホーム", href: "/" },
           { name: "給与ガイド", href: "/guide" },
-          { name: "残業代の計算方法", href: "/guide/kyuuyo-keisan-zangyou-houhou" },
+          { name: "残業代の計算方法", href: "/guide/zangyoudai-keisan-houhou" },
         ]} />
         <article>
           <header className="mb-8">
@@ -52,7 +52,7 @@ export default function ZangyoudaiKeisanPage() {
               <Link href="/guide" className="hover:underline">給与ガイド</Link>
             </p>
             <h1 className="text-3xl font-bold text-slate-800 mb-3">
-              給与計算の残業代算出方法を完全解説 | 割増率・計算例つき
+              残業代の計算方法を徹底解説 | 割増率・計算例つき
             </h1>
             <p className="text-slate-500">
               残業代がいくらもらえるのか正確に知るために、基礎時給の求め方から割増率の種類、具体的な計算例までわかりやすく解説します。
