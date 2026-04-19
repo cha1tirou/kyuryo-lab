@@ -61,7 +61,7 @@ export default function Page() {
         datePublished="2024-01-15"
         dateModified="2024-01-15"
       />
-      <FAQPageJsonLd faqs={faqData} />
+      <FAQPageJsonLd items={faqData} />
       
       <div className="min-h-screen bg-gray-50">
         <Header />
