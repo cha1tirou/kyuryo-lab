@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   const breadcrumbItems = [
-    { name: "ホーム", href: "/" },
-    { name: "ガイド", href: "/guide/" },
-    { name: "給与計算の残業代算出方法", href: "/guide/kyuuyo-keisan-zangyou-houhou/" }
+    { name: "ホーム", url: "/" },
+    { name: "ガイド", url: "/guide/" },
+    { name: "給与計算の残業代算出方法", url: "/guide/kyuuyo-keisan-zangyou-houhou/" }
   ];
 
   const faqData = [

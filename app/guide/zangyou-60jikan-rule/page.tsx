@@ -42,9 +42,9 @@ export default function Zangyou60Page() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", href: "/" },
-          { name: "給与ガイド", href: "/guide" },
-          { name: "月60時間超の残業代50%増", href: "/guide/zangyou-60jikan-rule" },
+          { name: "ホーム", url: "/" },
+          { name: "給与ガイド", url: "/guide" },
+          { name: "月60時間超の残業代50%増", url: "/guide/zangyou-60jikan-rule" },
         ]} />
         <article>
           <header className="mb-8">

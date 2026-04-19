@@ -204,8 +204,8 @@ export default function GuidePage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", href: "/" },
-          { name: "給与ガイド", href: "/guide" },
+          { name: "ホーム", url: "/" },
+          { name: "給与ガイド", url: "/guide" },
         ]} />
         <section className="mb-8">
           <h1 className="text-3xl font-bold text-slate-800 mb-2">

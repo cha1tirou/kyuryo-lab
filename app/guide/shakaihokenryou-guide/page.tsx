@@ -40,9 +40,9 @@ export default function ShakaiHokenPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", href: "/" },
-          { name: "給与ガイド", href: "/guide" },
-          { name: "社会保険料の計算方法", href: "/guide/shakaihokenryou-guide" },
+          { name: "ホーム", url: "/" },
+          { name: "給与ガイド", url: "/guide" },
+          { name: "社会保険料の計算方法", url: "/guide/shakaihokenryou-guide" },
         ]} />
         <article>
           <header className="mb-8">

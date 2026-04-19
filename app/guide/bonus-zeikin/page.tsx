@@ -40,9 +40,9 @@ export default function BonusZeikinPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", href: "/" },
-          { name: "給与ガイド", href: "/guide" },
-          { name: "ボーナスの手取りと税金", href: "/guide/bonus-zeikin" },
+          { name: "ホーム", url: "/" },
+          { name: "給与ガイド", url: "/guide" },
+          { name: "ボーナスの手取りと税金", url: "/guide/bonus-zeikin" },
         ]} />
         <article>
           <header className="mb-8">

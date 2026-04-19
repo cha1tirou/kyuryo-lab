@@ -48,8 +48,8 @@ export default function TenshokuKyuyoKoushouPage() {
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb
           items={[
-            { name: "ホーム", href: "/" },
-            { name: "給与ガイド", href: "/guide" },
+            { name: "ホーム", url: "/" },
+            { name: "給与ガイド", url: "/guide" },
             {
               name: "転職の給与交渉を成功させるコツと例文",
               href: "/guide/tenshoku-kyuyo-koushou",

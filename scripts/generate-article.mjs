@@ -190,6 +190,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQPageJsonLd } from "../../../compone
 
 ## 注意
 - TypeScriptエラーが出ないよう正確に書く
+- breadcrumbItemsは必ず { name: string, url: string } の形式にする（hrefは使わない）
 - 文字列内のシングルクォートはエスケープ（\\'）する
 - JSX内ではHTMLエンティティ（&amp; &lt; &gt;）を使う
 - コードブロック（\`\`\`）は使わない、純粋なTypeScriptコードのみを返す

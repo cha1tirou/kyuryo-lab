@@ -63,8 +63,8 @@ export default function IdecoSetuzeiPage() {
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb
           items={[
-            { name: "ホーム", href: "/" },
-            { name: "給与ガイド", href: "/guide" },
+            { name: "ホーム", url: "/" },
+            { name: "給与ガイド", url: "/guide" },
             {
               name: "iDeCoの節税効果",
               href: "/guide/ideco-setuzei",

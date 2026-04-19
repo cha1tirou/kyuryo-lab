@@ -62,9 +62,9 @@ export default function KaigoHokenryouPage() {
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb
           items={[
-            { name: "ホーム", href: "/" },
-            { name: "給与ガイド", href: "/guide" },
-            { name: "介護保険料の計算", href: "/guide/kaigo-hokenryou" },
+            { name: "ホーム", url: "/" },
+            { name: "給与ガイド", url: "/guide" },
+            { name: "介護保険料の計算", url: "/guide/kaigo-hokenryou" },
           ]}
         />
         <article>

@@ -45,8 +45,8 @@ export default function ZangyouJikanJoigenPage() {
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb
           items={[
-            { name: "ホーム", href: "/" },
-            { name: "給与ガイド", href: "/guide" },
+            { name: "ホーム", url: "/" },
+            { name: "給与ガイド", url: "/guide" },
             {
               name: "残業時間の上限規制と36協定",
               href: "/guide/zangyou-jikan-joigen",

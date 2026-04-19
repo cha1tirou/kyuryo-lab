@@ -48,8 +48,8 @@ export default function YukyuKyukaKeisanPage() {
           <header className="mb-8">
             <Breadcrumb
               items={[
-                { name: "ホーム", href: "/" },
-                { name: "給与ガイド", href: "/guide" },
+                { name: "ホーム", url: "/" },
+                { name: "給与ガイド", url: "/guide" },
                 {
                   name: "有給休暇の日数と計算方法",
                   href: "/guide/yukyu-kyuka-keisan",

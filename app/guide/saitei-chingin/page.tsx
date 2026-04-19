@@ -90,9 +90,9 @@ export default function SaiteiChinginPage() {
       />
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
         <Breadcrumb items={[
-          { name: "ホーム", href: "/" },
-          { name: "給与ガイド", href: "/guide" },
-          { name: "最低賃金一覧", href: "/guide/saitei-chingin" },
+          { name: "ホーム", url: "/" },
+          { name: "給与ガイド", url: "/guide" },
+          { name: "最低賃金一覧", url: "/guide/saitei-chingin" },
         ]} />
         <article>
           <header className="mb-8">
